@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,14 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('login', [SessionController::class, 'create'])->middleware('guest');
-Route::post('login', [SessionController::class, 'store'])->middleware('guest');
-
+Route::middleware('guest')->group(function() {
+    Route::get('login', [SessionController::class, 'create'])->name('login');
+    Route::post('login', [SessionController::class, 'store']);
+});
 
 Route::middleware('auth')->prefix('admin_panel')->group(function () {
-
-    Route::get('/', function () {
-        return view('admin.movie.index');
-    });
-
+    Route::get('/', [MOvieController::class, 'index']);
+    Route::get('/movie/create', [MOvieController::class, 'create']);
 });
