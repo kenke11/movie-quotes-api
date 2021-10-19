@@ -12,6 +12,11 @@
 
     <header class="py-10">
         <h1 class="text-center bold text-3xl">Admin panel - {{auth()->user()->username}}</h1>
+
+        <form id="logout-form" method="POST" action="{{asset('admin_panel/logout')}}">
+            @csrf
+            <button type="submit">logout</button>
+        </form>
     </header>
 
     <div class="m-auto  w-3/4 pt-20 flex">

@@ -27,4 +27,6 @@ Route::middleware('guest')->group(function() {
 Route::middleware('auth')->prefix('admin_panel')->group(function () {
     Route::get('/', [MOvieController::class, 'index']);
     Route::get('/movie/create', [MOvieController::class, 'create']);
+
+    Route::post('logout', [SessionController::class, 'logout']);
 });
