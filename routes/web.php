@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('login', [SessionController::class, 'create'])->middleware('guest');
-Route::get('login', [SessionController::class, 'create'])->middleware('guest');
+Route::post('login', [SessionController::class, 'store'])->middleware('guest');
 
 
 Route::middleware('auth')->prefix('admin_panel')->group(function () {
