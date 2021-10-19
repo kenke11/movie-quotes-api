@@ -41,12 +41,11 @@
     </div>
 
     @if(session()->has('success'))
-        <div class="fixed b-5 r-5 bg-green-500">
+        <div class="fixed bottom-10 right-10 bg-green-500 px-3 py-2 rounded-xl">
             <p class="text-white">{{session('success')}}</p>
         </div>
 
     @endif
-
 
 </body>
 </html>

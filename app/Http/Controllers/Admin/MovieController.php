@@ -56,7 +56,7 @@ class MovieController extends Controller
         $movie->quotes_ge = $request->quotes_ge;
         $movie->quotes_en = $request->quotes_en;
 
-        $movie['img'] = request()->file('img')->storePublicly('public/img');
+        $movie['img'] = request()->file('img')->storePublicly('img');
 
         $movie->save();
 
@@ -84,7 +84,12 @@ class MovieController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $movie = Movie::find($id);
+
+        return view('admin.movie.edit', [
+            'movie' => $movie
+        ]);
     }
 
     /**

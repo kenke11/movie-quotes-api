@@ -29,6 +29,9 @@ Route::middleware('auth')->prefix('admin_panel')->group(function () {
     Route::get('/movie/create', [MovieController::class, 'create']);
     Route::post('movie', [MovieController::class, 'store']);
 
+    Route::get('movie/edit/{id}', [MovieController::class, 'edit']);
+
+
     Route::delete('movie/delete/{id}', [MovieController::class, 'destroy']);
 
     Route::post('logout', [SessionController::class, 'logout']);
