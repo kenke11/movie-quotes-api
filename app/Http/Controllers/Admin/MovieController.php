@@ -109,7 +109,6 @@ class MovieController extends Controller
             'name_en' => 'required',
             'quote_ge' => 'required',
             'quote_en' => 'required',
-            'img' => 'required|image',
         ]);
 
         $movie->name_ge = $request->name_ge;
@@ -117,13 +116,14 @@ class MovieController extends Controller
         $movie->quote_ge = $request->quote_ge;
         $movie->quote_en = $request->quote_en;
 
-        $movie['img'] = request()->file('img')->storePublicly('img');
+        if ($request->img !== null){
+            $movie['img'] = request()->file('img')->storePublicly('img');
+        }
 
         $movie->save();
 
 
-
-        return redirect('admin_panel')->with('success', 'Movie update!');
+        return redirect()->back()->with('success', 'Movie update!');
     }
 
     /**

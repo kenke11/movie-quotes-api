@@ -30,7 +30,7 @@ Route::middleware('auth')->prefix('admin_panel')->group(function () {
     Route::post('movie', [MovieController::class, 'store']);
 
     Route::get('movie/edit/{id}', [MovieController::class, 'edit']);
-
+    Route::post('movie/update/{id}', [MovieController::class, 'update']);
 
     Route::delete('movie/delete/{id}', [MovieController::class, 'destroy']);
 

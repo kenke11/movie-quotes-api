@@ -2,7 +2,7 @@
 
     <section class="px-5 py-5 ">
         <main class=" ml-10 mt-10 lg:flex">
-            <form method="POST" action="" enctype="multipart/form-data" class="bg-gray-200 border-gray-500 p-6 rounded-xl w-1/2 mx-5">
+            <form method="POST" action="{{asset('admin_panel/movie/update/'.$movie->id)}}" enctype="multipart/form-data" class="bg-gray-200 border-gray-500 p-6 rounded-xl w-1/2 mx-5">
                 @csrf
 
                 <h1 class="text-center font-bold text-xl">Edit movie quotes</h1>
@@ -105,7 +105,6 @@
                         type="file"
                         name="img"
                         id="img"
-                        required
                     >
 
                     @error('img')
