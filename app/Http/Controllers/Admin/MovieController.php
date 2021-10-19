@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Movie;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
@@ -35,7 +36,28 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $movie = new Movie();
+
+        $this->validate( $request, [
+            'title_ge' => 'required',
+            'title_en' => 'required',
+            'quotes_ge' => 'required',
+            'quotes_en' => 'required',
+            'img' => 'required|image',
+        ]);
+
+        $movie->title_ge = $request->title_ge;
+        $movie->title_en = $request->title_en;
+        $movie->quotes_ge = $request->quotes_ge;
+        $movie->quotes_en = $request->quotes_en;
+
+        $movie['img'] = request()->file('img')->storePublicly('public/img');
+
+        $movie->save();
+
+
+
+        return redirect()->back()->with('success' ,'Movie add');
     }
 
     /**
