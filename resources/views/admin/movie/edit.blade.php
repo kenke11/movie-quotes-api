@@ -147,7 +147,7 @@
                             type="text"
                             name="quote_ge"
                             id="quote_ge"
-                            value="{{$movie->quote_ge}}"
+                            value=""
                             required
                         >
 
@@ -168,7 +168,7 @@
                             type="text"
                             name="quote_en"
                             id="quote_en"
-                            value="{{$movie->quote_en}}"
+                            value=""
                             required
                         >
 

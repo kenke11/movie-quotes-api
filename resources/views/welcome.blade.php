@@ -1,5 +1,5 @@
 <x-layout>
 
-    <x-movie />
+    <x-movie :movie="$movie" />
 
 </x-layout>

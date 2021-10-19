@@ -1,6 +1,6 @@
 <x-admin.layout>
 
-    <section class="mx-5 my-5">
+    <section class="mx-5 my-5 p-6 bg-gray-300 border border-gray-500 rounded-xl" >
         <!-- This example requires Tailwind CSS v2.0+ -->
         <div class="flex flex-col">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -43,7 +43,7 @@
                                     <form method="POST" action="{{asset('admin_panel/movie/delete/'.$movie->id)}}">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="text-red-600 hover:text-red-900">Delete</button>
+                                        <button class="text-red-600  hover:text-red-900">Delete</button>
                                     </form>
                                 </td>
                             </tr>
