@@ -128,12 +128,12 @@
 
             <div class="w-1/2">
                 <button
-                    class="m-auto w-full rounded-xl bg-green-300 py-5 text-center border border-green-500 hover:bg-green-500 transition font-bold"
+                    class="add_new_quote_btn m-auto w-full rounded-xl bg-green-300 py-5 text-center border border-green-500 hover:bg-green-500 transition font-bold"
                 >
                     Add new quote
                 </button>
 
-                <form action="" class="bg-gray-200 border-gray-500 p-6 rounded-xl my-5 transition duration-1000" style="opacity: 1">
+                <form action="" class="quote_form hidden opacity-0 bg-green-200 border border-green-500 p-6 rounded-xl my-5 transition duration-1000">
 
                     <h1 class="text-center font-bold text-xl">Add movie quote</h1>
 
