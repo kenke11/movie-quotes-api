@@ -19,9 +19,7 @@
         </form>
     </header>
 
-    @if(session()->has('success'))
-        <p>{{session('success')}}</p>
-    @endif
+
 
     <div class="m-auto  w-3/4 pt-20 flex">
         <aside class="w-max flex flex-col pt-10 px-10">
@@ -42,6 +40,12 @@
         </main>
     </div>
 
+    @if(session()->has('success'))
+        <div class="fixed b-5 r-5 bg-green-500">
+            <p class="text-white">{{session('success')}}</p>
+        </div>
+
+    @endif
 
 
 </body>

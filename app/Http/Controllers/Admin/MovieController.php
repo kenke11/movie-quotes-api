@@ -15,7 +15,12 @@ class MovieController extends Controller
      */
     public function index()
     {
-        return view('admin.movie.index');
+
+        $movies = Movie::all();
+
+        return view('admin.movie.index', [
+            'movies' => $movies
+        ]);
     }
 
     /**
@@ -102,6 +107,8 @@ class MovieController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Movie::find($id);
+        $post->delete();
+        return redirect()->back()->with('success' ,'Movie deleted!');
     }
 }
