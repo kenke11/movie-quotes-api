@@ -18,7 +18,7 @@
                                         <div class="ml-4">
 
                                             <div class="text-sm text-gray-500">
-                                                {{$movie->title_ge}}
+                                                {{$movie->name_ge}}
                                             </div>
 
                                         </div>
@@ -29,21 +29,21 @@
                                         <div class="ml-4">
 
                                             <div class="text-sm text-gray-500">
-                                                {{$movie->title_en}}
+                                                {{$movie->name_en}}
                                             </div>
 
                                         </div>
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="{{asset('admin_panel/movie/edit/'.$movie->id)}}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                    <a href="{{asset('admin_panel/movie/edit/'.$movie->id)}}" class="text-indigo-600 hover:text-indigo-900">Edit / Add quotes</a>
                                 </td>
 
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <form method="POST" action="{{asset('admin_panel/movie/delete/'.$movie->id)}}">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="text-red-600 hover:text-red-900">delete</button>
+                                        <button class="text-red-600 hover:text-red-900">Delete</button>
                                     </form>
                                 </td>
                             </tr>

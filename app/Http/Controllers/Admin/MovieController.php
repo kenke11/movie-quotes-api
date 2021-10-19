@@ -44,17 +44,17 @@ class MovieController extends Controller
         $movie = new Movie();
 
         $this->validate( $request, [
-            'title_ge' => 'required',
-            'title_en' => 'required',
-            'quotes_ge' => 'required',
-            'quotes_en' => 'required',
+            'name_ge' => 'required',
+            'name_en' => 'required',
+            'quote_ge' => 'required',
+            'quote_en' => 'required',
             'img' => 'required|image',
         ]);
 
-        $movie->title_ge = $request->title_ge;
-        $movie->title_en = $request->title_en;
-        $movie->quotes_ge = $request->quotes_ge;
-        $movie->quotes_en = $request->quotes_en;
+        $movie->name_ge = $request->name_ge;
+        $movie->name_en = $request->name_en;
+        $movie->quote_ge = $request->quote_ge;
+        $movie->quote_en = $request->quote_en;
 
         $movie['img'] = request()->file('img')->storePublicly('img');
 
@@ -62,7 +62,7 @@ class MovieController extends Controller
 
 
 
-        return redirect()->back()->with('success' ,'Movie add');
+        return redirect('admin_panel')->with('success', 'Movie add');
     }
 
     /**
