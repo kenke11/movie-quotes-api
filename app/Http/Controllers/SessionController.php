@@ -30,7 +30,7 @@ class SessionController extends Controller
             return redirect('/admin_panel')->with('success', 'Welcome Back!.');
         }
 
-        dd('not login');
+//        dd('not login');
 
         throw ValidationException::withMessages([
             'username' => 'Your provided credentials could not be verified.'

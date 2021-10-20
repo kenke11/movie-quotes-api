@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\MovieController;
+use App\Http\Controllers\Admin\QuoteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SessionController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,10 @@ Route::middleware('auth')->prefix('admin_panel')->group(function () {
     Route::post('movie/update/{id}', [MovieController::class, 'update']);
 
     Route::delete('movie/delete/{id}', [MovieController::class, 'destroy']);
+
+    Route::post('movie/edit/{id}/quote', [QuoteController::class, 'store']);
+    Route::put('movie/edit/quote/update/{id}', [QuoteController::class, 'update']);
+    Route::delete('movie/edit/quote/delete/{id}', [QuoteController::class, 'destroy']);
 
     Route::post('logout', [SessionController::class, 'logout']);
 });

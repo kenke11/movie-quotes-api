@@ -2,7 +2,7 @@
 
     <section class="px-5 py-5 ">
         <main class=" ml-10 mt-10 lg:flex">
-            <form method="POST" action="{{asset('admin_panel/movie/update/'.$movie->id)}}" enctype="multipart/form-data" class="bg-gray-200 border-gray-500 p-6 rounded-xl w-1/2 mx-5">
+            <form method="POST" action="{{asset('admin_panel/movie/update/'.$movie->id)}}" enctype="multipart/form-data" class="h-full bg-gray-200 border-gray-500 p-6 rounded-xl w-1/2 mx-5">
                 @csrf
 
                 <h1 class="text-center font-bold text-xl">Edit movie quotes</h1>
@@ -132,7 +132,13 @@
                     Add new quote
                 </button>
 
-                <form action="" class="quote_form hidden opacity-0 bg-green-200 border border-green-500 p-6 rounded-xl my-5 transition duration-1000">
+                <form
+                    method="POST"
+                    action="{{asset('admin_panel/movie/edit/'.$movie->id.'/quote')}}"
+                    class="quote_form hidden opacity-0 bg-green-200 border border-green-500 p-6 rounded-xl  my-5 transition duration-1000"
+                    enctype="multipart/form-data"
+                >
+                    @csrf
 
                     <h1 class="text-center font-bold text-xl">Add movie quote</h1>
 
@@ -178,26 +184,148 @@
 
                     </div>
 
+                    <div class="mb-6">
+
+                        <label for="quote_img" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                            Quote image
+                        </label>
+
+                        <input
+                            class="border border-gray-400 p-2 w-full"
+                            type="file"
+                            name="quote_img"
+                            id="quote_img"
+                        >
+
+                        @error('quote_img')
+                        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                        @enderror
+
+                    </div>
+
+
+
+
                     <div class="mb-6 mt-6">
                         <button class="w-full bg-blue-300 hover:bg-blue-500 py-3 rounded-xl transition duration-300">Add quote</button>
                     </div>
 
                 </form>
 
+                @foreach($quotes as $quote)
+                    <div x-data="{ show: false }">
+                        <div class="w-full bg-gray-200 border-gray-500 p-6 rounded-xl my-5 transition duration-1000">
 
-                <div class="w-full bg-gray-200 border-gray-500 p-6 rounded-xl my-5 transition duration-1000">
+                            <form method="POST" action="{{asset('admin_panel/movie/edit/quote/delete/'.$quote->id)}}" class="mb-3 w-full text-right">
+                                @csrf
+                                @method('DELETE')
+                                <button class="font-bold text-red-500">X</button>
+                            </form>
 
-                    <form action="" class="mb-3 w-full text-right">
-                        <button class="font-bold text-red-500">X</button>
-                    </form>
+                            <h3 class="block mb-2 uppercase font-bold text-lx text-gray-700 mt-3">MOVIE QUOTE IN GEORGIAN</h3>
+                            <p>{{$quote->quote_ge}}</p>
 
-                    <h3 class="block mb-2 uppercase font-bold text-lx text-gray-700 mt-3">MOVIE QUOTE IN GEORGIAN</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, ex.</p>
+                            <h3 class="block mb-2 uppercase font-bold text-lx text-gray-700 mt-5">MOVIE quote IN ENGLISH</h3>
 
-                    <h3 class="block mb-2 uppercase font-bold text-lx text-gray-700 mt-5">MOVIE quote IN ENGLISH</h3>
+                            <p>{{$quote->quote_en}}</p>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, sed!</p>
-                </div>
+                            <div class="mb-6">
+                                <h3 class="block mb-2 uppercase font-bold text-lx text-gray-700 mt-5">Quote img</h3>
+
+                                <img src="{{asset('storage/'.$quote->quote_img)}}" alt="">
+                            </div>
+
+                            <div class="mb-6 mt-6" >
+                                <button @click="show = true" class="w-full bg-blue-300 hover:bg-blue-500 py-3 rounded-xl transition duration-300">Edit quote</button>
+                            </div>
+                        </div>
+
+                        <div class="w-full bg-gray-200 border-gray-500 p-6 rounded-xl my-5 transition duration-1000" x-show="show">
+                            <form
+                                method="POST"
+                                action="{{asset('admin_panel/movie/edit/quote/update/'.$quote->id)}}"
+                                class="quote_form p-6 transition duration-1000"
+                                enctype="multipart/form-data"
+                            >
+                                @csrf
+                                @method('PUT')
+
+                                <h1 class="text-center font-bold text-xl">Add movie quote</h1>
+
+                                <div class="mb-6 mt-6">
+
+                                    <label for="quote_ge" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                                        Movie quote in georgian
+                                    </label>
+
+                                    <input
+                                        class="border border-gray-400 p-2 w-full"
+                                        type="text"
+                                        name="quote_ge"
+                                        id="quote_ge"
+                                        value="{{$quote->quote_ge}}"
+                                        required
+                                    >
+
+                                    @error('name_ge')
+                                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                                    @enderror
+
+                                </div>
+
+                                <div class="mb-6">
+
+                                    <label for="quote_en" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                                        Movie quote in english
+                                    </label>
+
+                                    <input
+                                        class="border border-gray-400 p-2 w-full"
+                                        type="text"
+                                        name="quote_en"
+                                        id="quote_en"
+                                        value="{{$quote->quote_en}}"
+                                        required
+                                    >
+
+                                    @error('quote_en')
+                                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                                    @enderror
+
+                                </div>
+
+                                <div class="mb-6">
+
+                                    <label for="quote_img" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                                        Quote image
+                                    </label>
+
+                                    <img src="{{asset('storage/'.$quote->quote_img)}}" alt="">
+
+                                    <input
+                                        class="border border-gray-400 p-2 w-full"
+                                        type="file"
+                                        name="quote_img"
+                                        id="quote_img"
+                                    >
+
+                                    @error('quote_img')
+                                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                                    @enderror
+
+                                </div>
+
+
+                                <div class="mb-6 mt-6">
+                                    <button class="w-full bg-blue-300 hover:bg-blue-500 py-3 rounded-xl transition duration-300">Edit quote</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                @endforeach
+
+
 
 
             </div>
