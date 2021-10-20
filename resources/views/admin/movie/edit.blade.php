@@ -240,7 +240,7 @@
                             </div>
                         </div>
 
-                        <div class="w-full bg-gray-200 border-gray-500 p-6 rounded-xl my-5 transition duration-1000" x-show="show">
+                        <div class="w-full bg-blue-200 border-blue-300 p-6 rounded-xl my-5 transition duration-1000" x-show="show">
                             <form
                                 method="POST"
                                 action="{{asset('admin_panel/movie/edit/quote/update/'.$quote->id)}}"

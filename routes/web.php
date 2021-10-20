@@ -17,7 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('lang/{lang}', [HomeController::class, 'language'])->name('lang');
+
 Route::get('/', [HomeController::class, 'index']);
+
 
 Route::middleware('guest')->group(function() {
     Route::get('login', [SessionController::class, 'create'])->name('login');
