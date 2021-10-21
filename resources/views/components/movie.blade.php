@@ -1,5 +1,5 @@
 <article
-    {{ $attributes->merge(['class' => '']) }}
+    {{ $attributes->merge(['class' => 'mt-48']) }}
 >
     <div>
         <img src="{{asset('storage/'.$movie->img)}}" alt="" class="flex justify-center text-center m-auto rounded-xl" width="700px">

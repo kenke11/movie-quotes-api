@@ -12,12 +12,23 @@ class HomeController extends Controller
     public function index() {
 
         $movie = Movie::all()->random();
-
+//
+////        dd($movie->name);
+////        $movie->getTranslatins();
+//        $movie->name = ['en' => $movie->name_en, 'ge' => $movie->name_ge];
+//        dd($movie->name->en);
 
         return view('welcome', [
             'movie' => $movie
         ]);
 
+    }
+
+    public function show($id) {
+        $movie = Movie::find($id);
+        return view('quote', [
+            'movie' => $movie
+        ]);
     }
 
     public function language($lang) {

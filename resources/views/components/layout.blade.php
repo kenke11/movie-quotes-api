@@ -30,7 +30,7 @@
 
     </aside>
 
-    <main class="flex justify-center items-center h-screen">
+    <main class="flex justify-center items-center">
         {{$slot}}
     </main>
 

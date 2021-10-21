@@ -19,10 +19,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('lang/{lang}', [HomeController::class, 'language'])->name('lang');
 
-Route::middleware('set-locale')->group(function () {
+Route::middleware('set-locale')->group( function (){
     Route::get('/', [HomeController::class, 'index']);
+    Route::get('movie/{id}', [HomeController::class, 'show']);
 });
-
 
 Route::middleware('guest')->group(function() {
     Route::get('login', [SessionController::class, 'create'])->name('login');
@@ -31,17 +31,19 @@ Route::middleware('guest')->group(function() {
 
 Route::middleware('auth')->prefix('admin_panel')->group(function () {
     Route::get('/', [MovieController::class, 'index']);
-    Route::get('/movie/create', [MovieController::class, 'create']);
-    Route::post('movie', [MovieController::class, 'store']);
-
-    Route::get('movie/edit/{id}', [MovieController::class, 'edit']);
-    Route::post('movie/update/{id}', [MovieController::class, 'update']);
-
-    Route::delete('movie/delete/{id}', [MovieController::class, 'destroy']);
-
-    Route::post('movie/edit/{id}/quote', [QuoteController::class, 'store']);
-    Route::put('movie/edit/quote/update/{id}', [QuoteController::class, 'update']);
-    Route::delete('movie/edit/quote/delete/{id}', [QuoteController::class, 'destroy']);
-
+    Route::prefix('movie')->group(function () {
+        Route::get('create', [MovieController::class, 'create']);
+        Route::post('/', [MovieController::class, 'store']);
+        Route::prefix('edit')->group(function () {
+            Route::get('{id}', [MovieController::class, 'edit']);
+            Route::post('{id}/quote', [QuoteController::class, 'store']);
+            Route::put('quote/update/{id}', [QuoteController::class, 'update']);
+            Route::delete('edit/quote/delete/{id}', [QuoteController::class, 'destroy']);
+        });
+        Route::post('update/{id}', [MovieController::class, 'update']);
+        Route::delete('delete/{id}', [MovieController::class, 'destroy']);
+    });
     Route::post('logout', [SessionController::class, 'logout']);
 });
+
+
