@@ -19,10 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('lang/{lang}', [HomeController::class, 'language'])->name('lang');
 
-Route::middleware('set-locale')->group( function (){
-    Route::get('/', [HomeController::class, 'index']);
-    Route::get('movie/{id}', [HomeController::class, 'show']);
-});
+
+Route::get('/', [HomeController::class, 'index']);
+Route::get('movie/{id}', [HomeController::class, 'show']);
 
 Route::middleware('guest')->group(function() {
     Route::get('login', [SessionController::class, 'create'])->name('login');

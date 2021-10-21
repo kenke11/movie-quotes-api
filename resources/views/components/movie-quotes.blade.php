@@ -11,7 +11,7 @@
         <img src="{{asset('storage/'.$movie->img)}}" alt="" class="flex justify-center text-center m-auto rounded-xl" width="700px">
         <div class="py-10 ">
             <h2  class="flex justify-center  text-5xl text-gray-800">
-                {{ \Illuminate\Support\Facades\App::getLocale() == 'en' ? $movie->quote_en : $movie->quote_ge }}
+                {{ $movie['name_'.app()->getLocale()] }}
             </h2>
         </div>
     </div>
@@ -21,8 +21,8 @@
             <img src="{{asset('storage/'.$quote->quote_img)}}" alt="" class="flex justify-center text-center m-auto rounded-xl" width="700px">
             <div class="py-10 ">
                 <h2  class="flex justify-center  text-5xl text-gray-800">
-                    {{ \Illuminate\Support\Facades\App::getLocale() == 'en' ? $quote->quote_en : $quote->quote_ge }}
-                </h2>
+                    {{ $quote['quote_'.app()->getLocale()]}}
+               </h2>
             </div>
         </div>
     @endforeach

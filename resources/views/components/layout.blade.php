@@ -15,14 +15,14 @@
             href="{{route('lang', 'en')}}"
             class="text-2xl border border-white
             rounded-full px-2 py-1.5
-            {{ \Illuminate\Support\Facades\App::getLocale() == 'en' ? 'text-black bg-white' : 'text-white' }}
+            {{ app()->getLocale() == 'en' ? 'text-black bg-white' : 'text-white' }}
         "
         >en</a>
         <a
             href="{{route('lang', 'ge')}}"
             class="text-2xl mt-3  border border-white
              rounded-full px-2 py-1.5
-            {{ \Illuminate\Support\Facades\App::getLocale() == 'ge' ? 'text-black bg-white' : 'text-white' }}
+            {{ app()->getLocale() == 'ge' ? 'text-black bg-white' : 'text-white' }}
             "
         >ka</a>
     </aside>

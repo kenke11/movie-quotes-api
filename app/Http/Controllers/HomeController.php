@@ -21,7 +21,7 @@ class HomeController extends Controller
     }
 
     public function language($lang) {
-        session(['lang' => $lang]);
+        cache()->put('lang', $lang);
         return redirect()->back();
     }
 }
