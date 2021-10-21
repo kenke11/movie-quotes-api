@@ -6,12 +6,16 @@
     </div>
 
     <div  class="mt-16">
-        <h1 class="flex justify-center text-center text-white text-5xl">“{{$movie["name_" . app()->currentLocale()]}}”</h1>
+        <h1 class="flex justify-center text-center text-white text-5xl">
+            “{{ \Illuminate\Support\Facades\App::getLocale() == 'en' ? $movie->name_en : $movie->name_ge }}”
+        </h1>
     </div>
 
 
     <div  class="mt-20">
-        <a href="{{asset('movie/'.$movie->id)}}" class="flex justify-center text-white text-5xl underline">{{$movie['quote_' . app()->currentLocale()]}}</a>
+        <a href="{{asset('movie/'.$movie->id)}}" class="flex justify-center text-white text-5xl underline">
+            {{ \Illuminate\Support\Facades\App::getLocale() == 'en' ? $movie->quote_en : $movie->quote_ge }}
+        </a>
     </div>
 
 </article>

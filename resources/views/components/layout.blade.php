@@ -13,8 +13,20 @@
 
     <aside class="fixed flex flex-col items-center justify-center h-screen ml-12">
 
-        <a href="{{route('lang', 'en')}}" class="text-2xl border border-white rounded-full px-2 py-1.5 text-white">en</a>
-        <a href="{{route('lang', 'ge')}}" class="text-2xl mt-3 bg-white border border-white rounded-full px-2 py-1.5 text-black">ka</a>
+        <a
+            href="{{route('lang', 'en')}}"
+            class="text-2xl border border-white
+            rounded-full px-2 py-1.5
+            {{ \Illuminate\Support\Facades\App::getLocale() == 'en' ? 'text-black bg-white' : 'text-white' }}
+        "
+        >en</a>
+        <a
+            href="{{route('lang', 'ge')}}"
+            class="text-2xl mt-3  border border-white
+             rounded-full px-2 py-1.5
+            {{ \Illuminate\Support\Facades\App::getLocale() == 'ge' ? 'text-black bg-white' : 'text-white' }}
+            "
+        >ka</a>
 
     </aside>
 
