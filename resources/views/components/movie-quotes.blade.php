@@ -1,7 +1,6 @@
 <article
     {{ $attributes->merge(['class' => 'mt-20']) }}
 >
-
     <div  class="mb-20">
         <h2 class="flex  text-white text-5xl" >
             {{ \Illuminate\Support\Facades\App::getLocale() == 'en' ? $movie->name_en : $movie->name_ge }}
@@ -14,9 +13,7 @@
             <h2  class="flex justify-center  text-5xl text-gray-800">
                 {{ \Illuminate\Support\Facades\App::getLocale() == 'en' ? $movie->quote_en : $movie->quote_ge }}
             </h2>
-
         </div>
-
     </div>
 
     @foreach($movie->quotes as $quote)
@@ -26,12 +23,7 @@
                 <h2  class="flex justify-center  text-5xl text-gray-800">
                     {{ \Illuminate\Support\Facades\App::getLocale() == 'en' ? $quote->quote_en : $quote->quote_ge }}
                 </h2>
-
             </div>
-
         </div>
     @endforeach
-
-
-
 </article>

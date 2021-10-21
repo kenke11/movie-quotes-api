@@ -45,5 +45,3 @@ Route::middleware('auth')->prefix('admin_panel')->group(function () {
     });
     Route::post('logout', [SessionController::class, 'logout']);
 });
-
-

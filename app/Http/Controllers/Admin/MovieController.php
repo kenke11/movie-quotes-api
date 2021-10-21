@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Movie;
-use App\Models\Quote;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
@@ -17,7 +16,6 @@ class MovieController extends Controller
     public function index()
     {
         $movies = Movie::all();
-
         return view('admin.movie.index', [
             'movies' => $movies
         ]);
@@ -42,9 +40,6 @@ class MovieController extends Controller
     public function store(Request $request)
     {
         $movie = new Movie();
-
-
-
         $this->validate( $request, [
             'name_ge' => 'required',
             'name_en' => 'required',
@@ -52,30 +47,13 @@ class MovieController extends Controller
             'quote_en' => 'required',
             'img' => 'required|image',
         ]);
-
         $movie->name_ge = $request->name_ge;
         $movie->name_en = $request->name_en;
         $movie->quote_ge = $request->quote_ge;
         $movie->quote_en = $request->quote_en;
-
         $movie['img'] = request()->file('img')->storePublicly('img');
-
         $movie->save();
-
-
-
         return redirect('admin_panel')->with('success', 'Movie add');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -86,11 +64,8 @@ class MovieController extends Controller
      */
     public function edit($id)
     {
-
         $movie = Movie::find($id);
         $quotes = $movie->quotes;
-
-
         return view('admin.movie.edit', [
             'movie' => $movie,
             'quotes' => $quotes
@@ -106,28 +81,21 @@ class MovieController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $movie = Movie::find($id);
-
         $this->validate( $request, [
             'name_ge' => 'required',
             'name_en' => 'required',
             'quote_ge' => 'required',
             'quote_en' => 'required',
         ]);
-
         $movie->name_ge = $request->name_ge;
         $movie->name_en = $request->name_en;
         $movie->quote_ge = $request->quote_ge;
         $movie->quote_en = $request->quote_en;
-
         if ($request->img !== null){
             $movie['img'] = request()->file('img')->storePublicly('img');
         }
-
         $movie->save();
-
-
         return redirect()->back()->with('success', 'Movie update!');
     }
 

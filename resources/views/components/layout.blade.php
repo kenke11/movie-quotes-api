@@ -10,9 +10,7 @@
 
 </head>
 <body style="background: #3D3B3B">
-
     <aside class="fixed flex flex-col items-center justify-center h-screen ml-12">
-
         <a
             href="{{route('lang', 'en')}}"
             class="text-2xl border border-white
@@ -27,13 +25,9 @@
             {{ \Illuminate\Support\Facades\App::getLocale() == 'ge' ? 'text-black bg-white' : 'text-white' }}
             "
         >ka</a>
-
     </aside>
-
     <main class="flex justify-center items-center">
         {{$slot}}
     </main>
-
-
 </body>
 </html>
