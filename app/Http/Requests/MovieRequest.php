@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+
 use Illuminate\Foundation\Http\FormRequest;
 
 class MovieRequest extends FormRequest
@@ -24,10 +25,10 @@ class MovieRequest extends FormRequest
     public function rules()
     {
         return [
-            'name_ge' => 'required',
-            'name_en' => 'required',
-            'quote_ge' => 'required',
-            'quote_en' => 'required',
+            'name_ge' => ['required', 'regex:/^[ა-ჰs]+$/', ],
+            'name_en' => ['required', 'regex:/^[a-zA-Z\s]+$/', ],
+            'quote_ge' => ['required', 'regex:/^[ა-ჰs]+$/', ],
+            'quote_en' => ['required', 'regex:/^[a-zA-Z\s]+$/', ],
             'img' => 'required|image',
         ];
     }

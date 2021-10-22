@@ -24,8 +24,8 @@ class UpdateQuoteRequest extends FormRequest
     public function rules()
     {
         return [
-            'quote_ge' => 'required',
-            'quote_en' => 'required',
+            'quote_ge' => ['required', 'regex:/^[ა-ჰs]+$/', ],
+            'quote_en' => ['required', 'regex:/^[a-zA-Z\s]+$/', ],
         ];
     }
 }

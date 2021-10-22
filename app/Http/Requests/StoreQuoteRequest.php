@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreQuoteRequest extends FormRequest
@@ -24,8 +25,8 @@ class StoreQuoteRequest extends FormRequest
     public function rules()
     {
         return [
-            'quote_ge' => 'required',
-            'quote_en' => 'required',
+            'quote_ge' => ['required', 'regex:/^[ა-ჰs]+$/', ],
+            'quote_en' => ['required', 'regex:/^[a-zA-Z\s]+$/', ],
             'quote_img' => 'required'
         ];
     }
