@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
@@ -12,11 +13,8 @@ class SessionController extends Controller
         return view('login.create');
     }
 
-    public function store(Request $request) {
-        $attribute = request()->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
+    public function store(LoginRequest $request) {
+        $attribute = $request->validate($request->rules());
         if(auth()->attempt($attribute)) {
             $request->session()->regenerate();
             return redirect('/admin_panel')->with('success', 'Welcome Back!.');

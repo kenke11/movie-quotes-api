@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MovieRequest;
+use App\Http\Requests\UpdateMovieRequest;
 use App\Models\Movie;
 use Illuminate\Http\Request;
 
@@ -37,16 +39,10 @@ class MovieController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MovieRequest $request)
     {
         $movie = new Movie();
-        $this->validate( $request, [
-            'name_ge' => 'required',
-            'name_en' => 'required',
-            'quote_ge' => 'required',
-            'quote_en' => 'required',
-            'img' => 'required|image',
-        ]);
+        $this->validate( $request,  $request->rules());
         $movie->name_ge = $request->name_ge;
         $movie->name_en = $request->name_en;
         $movie->quote_ge = $request->quote_ge;
@@ -66,10 +62,12 @@ class MovieController extends Controller
     {
         $movie = Movie::find($id);
         $quotes = $movie->quotes;
+
         return view('admin.movie.edit', [
             'movie' => $movie,
             'quotes' => $quotes
         ]);
+
     }
 
     /**
@@ -79,15 +77,10 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateMovieRequest $request, $id)
     {
         $movie = Movie::find($id);
-        $this->validate( $request, [
-            'name_ge' => 'required',
-            'name_en' => 'required',
-            'quote_ge' => 'required',
-            'quote_en' => 'required',
-        ]);
+        $this->validate( $request, $request->rules());
         $movie->name_ge = $request->name_ge;
         $movie->name_en = $request->name_en;
         $movie->quote_ge = $request->quote_ge;
