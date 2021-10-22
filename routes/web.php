@@ -37,7 +37,7 @@ Route::middleware('auth')->prefix('admin_panel')->group(function () {
             Route::get('{id}', [MovieController::class, 'edit']);
             Route::post('{id}/quote', [QuoteController::class, 'store']);
             Route::put('quote/update/{id}', [QuoteController::class, 'update']);
-            Route::delete('edit/quote/delete/{id}', [QuoteController::class, 'destroy']);
+            Route::delete('quote/delete/{id}', [QuoteController::class, 'destroy']);
         });
         Route::post('update/{id}', [MovieController::class, 'update']);
         Route::delete('delete/{id}', [MovieController::class, 'destroy']);

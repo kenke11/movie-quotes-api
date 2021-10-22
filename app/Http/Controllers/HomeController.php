@@ -7,7 +7,11 @@ use App\Models\Movie;
 class HomeController extends Controller
 {
     public function index() {
-        $movie = Movie::all()->random();
+        $movie = Movie::all();
+        if ($movie->count() > 0){
+            $movie = Movie::all()->random();
+        }
+
         return view('welcome', [
             'movie' => $movie
         ]);

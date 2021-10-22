@@ -16,8 +16,8 @@ class CreateQuotesTable extends Migration
         Schema::create('quotes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('movie_id');
-            $table->string('quote_ge');
-            $table->string('quote_en');
+            $table->text('quote_ge');
+            $table->text('quote_en');
             $table->string('quote_img');
             $table->timestamps();
         });

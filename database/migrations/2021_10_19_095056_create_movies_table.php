@@ -17,8 +17,8 @@ class CreateMoviesTable extends Migration
             $table->id();
             $table->string('name_ge');
             $table->string('name_en');
-            $table->string('quote_ge');
-            $table->string('quote_en');
+            $table->text('quote_ge');
+            $table->text('quote_en');
             $table->string('img');
             $table->timestamps();
         });

@@ -7,13 +7,20 @@
 
     <div  class="mt-16">
         <h1 class="flex justify-center text-center text-white text-5xl">
-            “{{ \Illuminate\Support\Facades\App::getLocale() == 'en' ? $movie->quote_en : $movie->quote_ge }}”
+            @if(app()->getLocale() == 'en')
+                “{{ substr($movie['quote_'.app()->getLocale()], 0, 50) }}@if(strlen($movie['quote_'.app()->getLocale()])>50)...@endif”
+            @else
+                “{{ substr($movie['quote_'.app()->getLocale()], 0, 100) }}@if(strlen($movie['quote_'.app()->getLocale()])>100)...@endif”
+            @endif
+
+
         </h1>
     </div>
 
+
     <div  class="mt-20">
         <a href="{{asset('movie/'.$movie->id)}}" class="flex justify-center text-white text-5xl underline">
-            {{ \Illuminate\Support\Facades\App::getLocale() == 'en' ? $movie->quote_en : $movie->quote_ge }}
+            {{ $movie['name_'.app()->getLocale()]}}
         </a>
     </div>
 </article>

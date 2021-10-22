@@ -45,7 +45,7 @@
                     >
 
                     @error('name_en')
-                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
 
                 </div>
@@ -56,14 +56,12 @@
                         Quote in georgia
                     </label>
 
-                    <input
+                    <textarea
                         class="border border-gray-400 p-2 w-full"
-                        type="text"
                         name="quote_ge"
                         id="quote_ge"
-                        value="{{old('quote_ge')}}"
                         required
-                    >
+                    >{{old('quote_ge')}}</textarea>
 
                     @error('quote_ge')
                         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -77,15 +75,14 @@
                         Quote in english
                     </label>
 
-                    <input
+                    <textarea
                         class="border border-gray-400 p-2 w-full"
-                        type="text"
                         name="quote_en"
                         id="quote_en"
-                        value="{{old('quote_en')}}"
                         required
                     >
-
+                        {{old('quote_en')}}
+                    </textarea>
                     @error('quote_en')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
