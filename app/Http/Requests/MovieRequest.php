@@ -25,9 +25,9 @@ class MovieRequest extends FormRequest
     public function rules()
     {
         return [
-            'name_ge' => ['required', 'regex:/^[ა-ჰs]+$/', ],
+            'name_ge' => ['required', 'regex:/^[ა-ჰ\s]+$/', ],
             'name_en' => ['required', 'regex:/^[a-zA-Z\s]+$/', ],
-            'quote_ge' => ['required', 'regex:/^[ა-ჰs]+$/', ],
+            'quote_ge' => ['required', 'regex:/^[ა-ჰ\s]+$/', ],
             'quote_en' => ['required', 'regex:/^[a-zA-Z\s]+$/', ],
             'img' => 'required|image',
         ];

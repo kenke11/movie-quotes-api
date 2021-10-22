@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateMovieRequest extends FormRequest
 {
-    /**
+    /**'regex:/^[ა-ჰ\s]+$/',
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -25,9 +25,9 @@ class UpdateMovieRequest extends FormRequest
     public function rules()
     {
         return [
-            'name_ge' => ['required', 'regex:/^[ა-ჰs]+$/', ],
+            'name_ge' => ['required', 'regex:/^[ა-ჰ\s]+$/', ],
             'name_en' => ['required', 'regex:/^[a-zA-Z\s]+$/', ],
-            'quote_ge' => ['required', 'regex:/^[ა-ჰs]+$/', ],
+            'quote_ge' => ['required', 'regex:/^[ა-ჰ\s]+$/', ],
             'quote_en' => ['required', 'regex:/^[a-zA-Z\s]+$/', ],
         ];
     }
