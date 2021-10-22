@@ -1,7 +1,7 @@
 <article
-    {{ $attributes->merge(['class' => 'mt-20']) }}
+    {{ $attributes->merge(['class' => 'mt-36']) }}
 >
-    <div  class="mb-20">
+    <div  class="top-0 py-5 fixed w-full" style="background: #3D3B3B">
         <h2 class="flex  text-white text-5xl" >
             {{ $movie['name_'.app()->getLocale()] }}
         </h2>

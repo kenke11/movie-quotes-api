@@ -4,10 +4,7 @@
         <main class=" ml-10 mt-10 lg:flex">
             <form method="POST" action="{{asset('admin_panel/movie/update/'.$movie->id)}}" enctype="multipart/form-data" class="h-full bg-gray-200 border-gray-500 p-6 rounded-xl w-1/2 mx-5">
                 @csrf
-
                 <h1 class="text-center font-bold text-xl">Edit movie quotes</h1>
-
-
                 <div class="mb-6 mt-6">
 
                     <label for="name_ge" class="block mb-2 uppercase font-bold text-xs text-gray-700">
@@ -119,7 +116,6 @@
 
             </form>
 
-
             <div class="w-1/2">
                 <button
                     class="add_new_quote_btn m-auto w-full rounded-xl bg-green-300 py-5 text-center border border-green-500 hover:bg-green-500 transition font-bold"
@@ -193,9 +189,6 @@
                         @enderror
 
                     </div>
-
-
-
 
                     <div class="mb-6 mt-6">
                         <button class="w-full bg-blue-300 hover:bg-blue-500 py-3 rounded-xl transition duration-300">Add quote</button>
@@ -315,9 +308,7 @@
                         </div>
                     </div>
                 @endforeach
-
             </div>
-
         </main>
     </section>
 
