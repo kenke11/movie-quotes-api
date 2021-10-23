@@ -25,10 +25,10 @@ class UpdateMovieRequest extends FormRequest
     public function rules()
     {
         return [
-            'name_ge' => ['required',  'max:255'],
-            'name_en' => ['required',  'max:255'],
-            'quote_ge' => ['required',  ],
-            'quote_en' => ['required',  ],
+            'name_ge' => 'required|max:255',
+            'name_en' => 'required|max:255',
+            'quote_ge' => 'required',
+            'quote_en' => 'required',
         ];
     }
 }

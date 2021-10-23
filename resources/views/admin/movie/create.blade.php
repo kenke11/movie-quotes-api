@@ -80,9 +80,7 @@
                         name="quote_en"
                         id="quote_en"
                         required
-                    >
-                        {{old('quote_en')}}
-                    </textarea>
+                    >{{old('quote_en')}}</textarea>
                     @error('quote_en')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror

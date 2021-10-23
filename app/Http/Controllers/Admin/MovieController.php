@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
 use App\Models\Movie;
-use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
@@ -36,19 +35,14 @@ class MovieController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\MovieRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(MovieRequest $request)
     {
-        $movie = new Movie();
-        $this->validate( $request,  $request->rules());
-        $movie->name_ge = $request->name_ge;
-        $movie->name_en = $request->name_en;
-        $movie->quote_ge = $request->quote_ge;
-        $movie->quote_en = $request->quote_en;
-        $movie['img'] = request()->file('img')->storePublicly('img');
-        $movie->save();
+        $movie = $request->validate($request->rules());
+        $movie['img'] = $request->file('img')->storePublicly('img');
+        Movie::create($movie);
         return redirect('admin_panel')->with('success', 'Movie add');
     }
 
@@ -62,7 +56,6 @@ class MovieController extends Controller
     {
         $movie = Movie::find($id);
         $quotes = $movie->quotes;
-
         return view('admin.movie.edit', [
             'movie' => $movie,
             'quotes' => $quotes
@@ -73,22 +66,18 @@ class MovieController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\UpdateMovieRequest  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateMovieRequest $request, $id)
     {
         $movie = Movie::find($id);
-        $this->validate( $request, $request->rules());
-        $movie->name_ge = $request->name_ge;
-        $movie->name_en = $request->name_en;
-        $movie->quote_ge = $request->quote_ge;
-        $movie->quote_en = $request->quote_en;
+        $attribute = $request->validate($request->rules());
         if ($request->img !== null){
-            $movie['img'] = request()->file('img')->storePublicly('img');
+            $movie['img'] = $request->file('img')->storePublicly('img');
         }
-        $movie->save();
+        $movie->update($attribute);
         return redirect()->back()->with('success', 'Movie update!');
     }
 
