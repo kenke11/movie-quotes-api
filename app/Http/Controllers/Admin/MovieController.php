@@ -10,9 +10,8 @@ use App\Models\Movie;
 class MovieController extends Controller
 {
     /**
-     * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
@@ -23,9 +22,9 @@ class MovieController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new movies.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function create()
     {
@@ -33,10 +32,10 @@ class MovieController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created movie in storage.
      *
      * @param  \App\Http\Requests\MovieRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function store(MovieRequest $request)
     {
@@ -47,10 +46,10 @@ class MovieController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified movie.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function edit($id)
     {
@@ -64,11 +63,11 @@ class MovieController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified movie in storage.
      *
      * @param  \App\Http\Requests\UpdateMovieRequest  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(UpdateMovieRequest $request, $id)
     {
@@ -82,10 +81,10 @@ class MovieController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified movie from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {

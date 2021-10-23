@@ -24,8 +24,8 @@ class UpdateQuoteRequest extends FormRequest
     public function rules()
     {
         return [
-            'update_quote_ge' => ['required', ],
-            'update_quote_en' => ['required', ],
+            'update_quote_ge' => 'required',
+            'update_quote_en' => 'required',
         ];
     }
 }

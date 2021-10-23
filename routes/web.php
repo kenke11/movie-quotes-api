@@ -35,7 +35,7 @@ Route::middleware('auth')->prefix('admin_panel')->group(function () {
         Route::post('/', [MovieController::class, 'store']);
         Route::prefix('edit')->group(function () {
             Route::get('{id}', [MovieController::class, 'edit']);
-            Route::post('{id}/quote', [QuoteController::class, 'store']);
+            Route::post('{id}/quote', [QuoteController::class, 'store'])->name('quote-store');
             Route::put('quote/update/{id}', [QuoteController::class, 'update']);
             Route::delete('quote/delete/{id}', [QuoteController::class, 'destroy']);
         });

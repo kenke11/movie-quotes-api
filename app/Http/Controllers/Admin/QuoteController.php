@@ -10,6 +10,13 @@ use App\Models\Quote;
 class QuoteController extends Controller
 {
 
+    /**
+     * Store a newly created quote in storage.
+     *
+     * @param int $id movie_id
+     * @param  \App\Http\Requests\StoreQuoteRequest  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store($id, StoreQuoteRequest $request){
         $quote = new Quote();
         $this->validate($request, $request->rules());
@@ -21,6 +28,13 @@ class QuoteController extends Controller
         return redirect()->back()->with('success', 'Quote add!');
     }
 
+    /**
+     * Update the specified quote in storage.
+     *
+     * @param  \App\Http\Requests\UpdateQuoteRequest  $request
+     * @param  int  $id quote id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update($id, UpdateQuoteRequest $request) {
         $quote = Quote::find($id);
         $this->validate($request, $request->rules());
@@ -33,6 +47,12 @@ class QuoteController extends Controller
         return redirect()->back()->with('success', 'Quote updated!');
     }
 
+    /**
+     * Remove the specified quote from storage.
+     *
+     * @param  int  $id quote id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroy($id)
     {
         $quote = Quote::find($id);

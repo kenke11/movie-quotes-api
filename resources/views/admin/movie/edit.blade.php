@@ -125,7 +125,7 @@
 
                 <form
                     method="POST"
-                    action="{{asset('admin_panel/movie/edit/'.$movie->id.'/quote')}}"
+                    action="{{route('quote-store', $movie->id)}}"
                     class="quote_form hidden opacity-0 bg-green-200 border border-green-500 p-6 rounded-xl  my-5 transition duration-1000"
                     enctype="multipart/form-data"
                 >
