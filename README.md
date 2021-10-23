@@ -1,6 +1,6 @@
 ## Movie quotes
 <p align="left">
-    // about this site
+    This site has two pages. On the first page randomly appears a movie and a quote from that film. We can move from the first page to another, where there will be a list of quotes from a specific movie. Also the site has an admin panel, where he / she can add, delete or edit movies and quotes.
 </p>
 
 ## Table of Contents
