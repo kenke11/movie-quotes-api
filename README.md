@@ -1,6 +1,10 @@
 ## Movie quotes
 <p align="left">
-    This site has two pages. On the first page randomly appears a movie and a quote from that film. We can move from the first page to another, where there will be a list of quotes from a specific movie. Also the site has an admin panel, where he / she can add, delete or edit movies and quotes.
+    This site has two pages. On the first page randomly appears
+    a movie and a quote from that film. We can move from the first 
+    page to another, where will be a list of quotes from a specific
+    movie. Also the site has an admin panel, where he / she can add, 
+    delete or edit movies and quotes.
 </p>
 
 ## Table of Contents
@@ -18,13 +22,13 @@
 
 ## Getting started
 
-1. first you needFirst of all you need to clone this repository from github:
+1. First of all you need to clone this repository from github:
 
 ```sh
 git clone https://github.com/RedberryInternship/tazokenkebashvili-movie-quotes.git
 ```
 
-2. Next step requires you to run *composer install* in order to install all the dependencies.
+2. Next step requires from you to run *composer install* in order to install all the dependencies.
 
 ```sh
 composer install
