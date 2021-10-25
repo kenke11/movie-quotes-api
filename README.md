@@ -11,8 +11,10 @@
 
 * [Prerequisites](#prerequisites)
 * [Getting started](#getting-started)
+* [Database tables](#database-tables)
 * [Migrations](#migration)
 * [Admin registrations](#admin-registration)
+* [Resources](#resources)
 
 ## Prerequisites
 
@@ -83,3 +85,8 @@ php artisan command:create-admin
  
  admin created
 ```
+
+#
+### Resources
+
+[Figma Designs](https://www.figma.com/file/IIJOKK5esgM8uK8pM3D59J/Movie-Quotes?node-id=0%3A1)
