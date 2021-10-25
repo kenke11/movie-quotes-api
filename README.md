@@ -52,6 +52,11 @@ cp .env.example .env
 And now you should provide .env file all the necessary environment variables:
 
 #
+### Database tables
+
+!["CI / CD"](./readme/drawsql.png)
+
+#
 ### Migration
 
 ```sh
