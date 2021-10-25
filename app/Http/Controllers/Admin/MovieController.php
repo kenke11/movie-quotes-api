@@ -16,7 +16,10 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $movies = Movie::all();
+        $movies = Movie::orderby('created_at', 'DESC')
+            ->where('name_en', 'like', '%' . request()->search . '%')
+            ->orWhere('name_ge', 'like', '%' . request()->search . '%')
+            ->paginate(6)->appends(request()->all());
         return view('admin.movie.index', [
             'movies' => $movies
         ]);
