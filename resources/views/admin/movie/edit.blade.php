@@ -135,18 +135,18 @@
 
                     <div class="mb-6 mt-6">
 
-                        <label for="store_quote_ge" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                        <label for="quote_ge" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                             Movie quote in georgian
                         </label>
 
                         <textarea
                             class="border border-gray-400 p-2 w-full"
-                            name="store_quote_ge"
-                            id="store_quote_ge"
+                            name="quote_ge"
+                            id="quote_ge"
                             required
                         ></textarea>
 
-                        @error('store_name_ge')
+                        @error('quote_ge')
                         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                         @enderror
 
@@ -154,18 +154,18 @@
 
                     <div class="mb-6">
 
-                        <label for="store_quote_en" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                        <label for="quote_en" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                             Movie quote in english
                         </label>
 
                         <textarea
                             class="border border-gray-400 p-2 w-full"
-                            name="store_quote_en"
-                            id="store_quote_en"
+                            name="quote_en"
+                            id="quote_en"
                             required
                         ></textarea>
 
-                        @error('store_quote_en')
+                        @error('quote_en')
                         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                         @enderror
 
@@ -173,18 +173,18 @@
 
                     <div class="mb-6">
 
-                        <label for="store_quote_img" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                        <label for="quote_img" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                             Quote image
                         </label>
 
                         <input
                             class="border border-gray-400 p-2 w-full"
                             type="file"
-                            name="store_quote_img"
-                            id="store_quote_img"
+                            name="quote_img"
+                            id="quote_img"
                         >
 
-                        @error('store_quote_img')
+                        @error('quote_img')
                         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                         @enderror
 
@@ -238,20 +238,20 @@
 
                                 <div class="mb-6 mt-6">
 
-                                    <label for="update_quote_ge" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                                    <label for="quote_ge" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                                         Movie quote in georgian
                                     </label>
 
                                     <input
                                         class="border border-gray-400 p-2 w-full"
                                         type="text"
-                                        name="update_quote_ge"
-                                        id="update_quote_ge"
+                                        name="quote_ge"
+                                        id="quote_ge"
                                         value="{{$quote->quote_ge}}"
                                         required
                                     >
 
-                                    @error('update_quote_ge')
+                                    @error('quote_ge')
                                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                                     @enderror
 
@@ -259,20 +259,20 @@
 
                                 <div class="mb-6">
 
-                                    <label for="update_quote_en" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                                    <label for="quote_en" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                                         Movie quote in english
                                     </label>
 
                                     <input
                                         class="border border-gray-400 p-2 w-full"
                                         type="text"
-                                        name="update_quote_en"
-                                        id="update_quote_en"
+                                        name="quote_en"
+                                        id="quote_en"
                                         value="{{$quote->quote_en}}"
                                         required
                                     >
 
-                                    @error('update_quote_en')
+                                    @error('quote_en')
                                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                                     @enderror
 
@@ -280,7 +280,7 @@
 
                                 <div class="mb-6">
 
-                                    <label for="update_quote__img" class="block mb-2 uppercase font-bold text-xs text-gray-700">
+                                    <label for="quote_img" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                                         Quote image
                                     </label>
 
@@ -289,11 +289,11 @@
                                     <input
                                         class="border border-gray-400 p-2 w-full"
                                         type="file"
-                                        name="update_quote__img"
-                                        id="update_quote_img"
+                                        name="quote_img"
+                                        id="quote_img"
                                     >
 
-                                    @error('update_quote_img')
+                                    @error('quote_img')
                                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                                     @enderror
 

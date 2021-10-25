@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MovieRequest;
 use App\Http\Requests\UpdateMovieRequest;
 use App\Models\Movie;
+use Illuminate\Support\Facades\Storage;
 
 class MovieController extends Controller
 {
@@ -39,7 +40,7 @@ class MovieController extends Controller
      */
     public function store(MovieRequest $request)
     {
-        $movie = $request->validate($request->rules());
+        $movie = $request->validated();
         $movie['img'] = $request->file('img')->storePublicly('img');
         Movie::create($movie);
         return redirect('admin_panel')->with('success', 'Movie add');
@@ -59,7 +60,6 @@ class MovieController extends Controller
             'movie' => $movie,
             'quotes' => $quotes
         ]);
-
     }
 
     /**
@@ -69,12 +69,13 @@ class MovieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(UpdateMovieRequest $request, $id)
+    public function update($id, UpdateMovieRequest $request)
     {
         $movie = Movie::find($id);
-        $attribute = $request->validate($request->rules());
+        $attribute = $request->validated();
         if ($request->img !== null){
-            $movie['img'] = $request->file('img')->storePublicly('img');
+            Storage::delete($movie->img);
+            $attribute['img'] = $request->file('img')->storePublicly('img');
         }
         $movie->update($attribute);
         return redirect()->back()->with('success', 'Movie update!');
@@ -89,6 +90,11 @@ class MovieController extends Controller
     public function destroy($id)
     {
         $post = Movie::find($id);
+        foreach($post->quotes as $quote){
+            Storage::delete($quote->quote_img);
+            $quote->delete();
+        }
+        Storage::delete($post->img);
         $post->delete();
         return redirect()->back()->with('success' ,'Movie deleted!');
     }

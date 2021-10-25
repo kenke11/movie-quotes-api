@@ -25,9 +25,9 @@ class StoreQuoteRequest extends FormRequest
     public function rules()
     {
         return [
-            'store_quote_ge' => 'required',
-            'store_quote_en' => 'required',
-            'store_quote_img' => 'required|image'
+            'quote_ge' => 'required',
+            'quote_en' => 'required',
+            'quote_img' => 'required|image'
         ];
     }
 }
