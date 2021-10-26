@@ -7,10 +7,14 @@
 
     <div  class="mt-16">
         <h1 class="flex justify-center text-center text-white text-5xl">
-            @if(app()->getLocale() == 'en')
-                “{{ substr(__($quote), 0, 50) }}@if(strlen(__($quote))>50)...@endif”
-            @elseif(app()->getLocale() == 'ge')
-                “{{ substr(__($quote), 0, 150) }}@if(strlen(__($quote))>150)...@endif”
+            @if($quote == null)
+                {{__('dont_have_quote')}}
+            @else
+                @if(app()->getLocale() == 'en')
+                    “{{ substr(__($quote), 0, 50) }}@if(strlen(__($quote))>50)...@endif”
+                @elseif(app()->getLocale() == 'ge')
+                    “{{ substr(__($quote), 0, 150) }}@if(strlen(__($quote))>150)...@endif”
+                @endif
             @endif
         </h1>
     </div>

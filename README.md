@@ -10,6 +10,7 @@
 ## Table of Contents
 
 * [Prerequisites](#prerequisites)
+* [Package](#package)
 * [Getting started](#getting-started)
 * [Database tables](#database-tables)
 * [Migrations](#migration)
@@ -21,6 +22,12 @@
 * <img src="readme/php.jpg" width="35" style="position: relative; top: 4px" /> *PHP@8.0 and up*
 * <img src="readme/npm.png" width="35" style="position: relative; top: 4px" /> *npm@6 and up*
 * <img src="readme/composer.png" width="35" style="position: relative; top: 6px" /> *composer@2.1.9*
+
+# Package
+
+* [*spatie/laravel-translatable ^4.4*](https://github.com/spatie/laravel-translatable)
+* [*codezero-be / laravel-unique-translation*](https://github.com/codezero-be/laravel-unique-translation)
+
 
 ## Getting started
 
