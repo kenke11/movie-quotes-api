@@ -24,7 +24,7 @@ class UpdateQuoteRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'quote.*' => ['required']
         ];
     }
 }

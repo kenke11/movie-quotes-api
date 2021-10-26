@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 
+use CodeZero\UniqueTranslation\UniqueTranslationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class MovieRequest extends FormRequest
@@ -25,6 +26,7 @@ class MovieRequest extends FormRequest
     public function rules()
     {
         return [
+            'name.*' => ['required', 'max:255', UniqueTranslationRule::for('movies')],
             'img' => 'required|image',
         ];
     }

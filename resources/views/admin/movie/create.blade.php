@@ -17,14 +17,14 @@
                     <input
                         class="border border-gray-400 p-2 w-full"
                         type="text"
-                        name="name_ge"
+                        name="name[ge]"
                         id="name_ge"
-                        value="{{old('name_ge')}}"
+                        value="{{old('name.ge')}}"
                         required
                     >
 
-                    @error('name_ge')
-                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
+                    @error('name.ge')
+                        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
 
                 </div>
@@ -38,13 +38,13 @@
                     <input
                         class="border border-gray-400 p-2 w-full"
                         type="text"
-                        name="name_en"
+                        name="name[en]"
                         id="name_en"
-                        value="{{old('name_en')}}"
-                        required
+                        value="{{old('name.en')}}"
+
                     >
 
-                    @error('name_en')
+                    @error('name.en')
                         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
 

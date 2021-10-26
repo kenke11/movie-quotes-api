@@ -44,9 +44,10 @@ class MovieController extends Controller
     {
         $movie = new Movie();
         $fieldMovie = $request->validated();
+
         $translations = [
-            'en' => $request->name_en,
-            'ge' => $request->name_ge
+            'en' => $request->name['en'],
+            'ge' => $request->name['ge']
         ];
         $movie->setTranslations('name', $translations);
         $fieldMovie['name'] = $movie->getTranslations('name');
@@ -83,8 +84,8 @@ class MovieController extends Controller
         $movie = Movie::find($id);
         $fieldMovie = $request->validated();
         $translations = [
-            'en' => $request->name_en,
-            'ge' => $request->name_ge
+            'en' => $request->name['en'],
+            'ge' => $request->name['ge']
         ];
         $movie->setTranslations('name', $translations);
         $fieldMovie['name'] = $movie->getTranslations('name');

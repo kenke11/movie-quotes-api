@@ -14,13 +14,13 @@
                     <input
                         class="border border-gray-400 p-2 w-full"
                         type="text"
-                        name="name_ge"
+                        name="name[ge]"
                         id="name_ge"
                         value="{{$movie->getTranslation('name', 'ge')}}"
                         required
                     >
 
-                    @error('name_ge')
+                    @error('name.ge')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
 
@@ -35,13 +35,13 @@
                     <input
                         class="border border-gray-400 p-2 w-full"
                         type="text"
-                        name="name_en"
+                        name="name[en]"
                         id="name_en"
                         value="{{$movie->getTranslation('name', 'en')}}"
                         required
                     >
 
-                    @error('name_en')
+                    @error('name.en')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
 
@@ -104,12 +104,12 @@
 
                         <textarea
                             class="border border-gray-400 p-2 w-full"
-                            name="quote_ge"
+                            name="quote[ge]"
                             id="quote_ge"
                             required
                         ></textarea>
 
-                        @error('quote_ge')
+                        @error('quote.ge')
                         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                         @enderror
 
@@ -123,12 +123,12 @@
 
                         <textarea
                             class="border border-gray-400 p-2 w-full"
-                            name="quote_en"
+                            name="quote[en]"
                             id="quote_en"
                             required
                         ></textarea>
 
-                        @error('quote_en')
+                        @error('quote.en')
                         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                         @enderror
 
@@ -208,13 +208,13 @@
                                     <input
                                         class="border border-gray-400 p-2 w-full"
                                         type="text"
-                                        name="quote_ge"
+                                        name="quote[ge]"
                                         id="quote_ge"
                                         value="{{$quote->getTranslation('quote', 'ge')}}"
                                         required
                                     >
 
-                                    @error('quote_ge')
+                                    @error('quote.ge')
                                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                                     @enderror
 
@@ -229,13 +229,13 @@
                                     <input
                                         class="border border-gray-400 p-2 w-full"
                                         type="text"
-                                        name="quote_en"
+                                        name="quote[en]"
                                         id="quote_en"
                                         value="{{$quote->getTranslation('quote', 'en')}}"
                                         required
                                     >
 
-                                    @error('quote_en')
+                                    @error('quote.en')
                                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                                     @enderror
 

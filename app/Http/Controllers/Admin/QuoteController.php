@@ -22,8 +22,8 @@ class QuoteController extends Controller
         $quote = new Quote();
         $fieldQuote = $request->validated();
         $translations = [
-            'en' => $request->quote_en,
-            'ge' => $request->quote_ge
+            'en' => $request->quote['en'],
+            'ge' => $request->quote['ge']
         ];
         $quote->setTranslations('quote', $translations);
         $fieldQuote['quote'] = $quote->getTranslations('quote');
@@ -44,8 +44,8 @@ class QuoteController extends Controller
         $quote = Quote::find($id);
         $fieldQuote = $request->validated();
         $translations = [
-            'en' => $request->quote_en,
-            'ge' => $request->quote_ge
+            'en' => $request->quote['en'],
+            'ge' => $request->quote['ge']
         ];
         $quote->setTranslations('quote', $translations);
         $fieldQuote['quote'] = $quote->getTranslations('quote');
