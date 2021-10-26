@@ -16,7 +16,7 @@
                         type="text"
                         name="name_ge"
                         id="name_ge"
-                        value="{{$movie->name_ge}}"
+                        value="{{$movie->getTranslation('name', 'ge')}}"
                         required
                     >
 
@@ -37,48 +37,11 @@
                         type="text"
                         name="name_en"
                         id="name_en"
-                        value="{{$movie->name_en}}"
+                        value="{{$movie->getTranslation('name', 'en')}}"
                         required
                     >
 
                     @error('name_en')
-                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-                    @enderror
-
-                </div>
-
-                <div class="mb-6 mt-6">
-
-                    <label for="quote_ge" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                        Quote in georgia
-                    </label>
-
-                    <textarea
-                        class="border border-gray-400 p-2 w-full"
-                        name="quote_ge"
-                        id="quote_ge"
-                        required
-                    >{{$movie->quote_ge}}</textarea>
-
-                    @error('quote_ge')
-                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-                    @enderror
-
-                </div>
-
-                <div class="mb-6 mt-6">
-
-                    <label for="quote_en" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                        Quote in english
-                    </label>
-
-                    <textarea
-                        class="border border-gray-400 p-2 w-full"
-                        name="quote_en"
-                        id="quote_en"
-                        required
-                    >{{$movie->quote_en}}</textarea>
-                    @error('quote_en')
                     <p class="text-red-500 text-xs mt-1">{{$message}}</p>
                     @enderror
 
@@ -207,11 +170,11 @@
                             </form>
 
                             <h3 class="block mb-2 uppercase font-bold text-lx text-gray-700 mt-3">MOVIE QUOTE IN GEORGIAN</h3>
-                            <p>{{$quote->quote_ge}}</p>
+                            <p>{{$quote->getTranslation('quote', 'ge')}}</p>
 
                             <h3 class="block mb-2 uppercase font-bold text-lx text-gray-700 mt-5">MOVIE quote IN ENGLISH</h3>
 
-                            <p>{{$quote->quote_en}}</p>
+                            <p>{{$quote->getTranslation('quote', 'en')}}</p>
 
                             <div class="mb-6">
                                 <h3 class="block mb-2 uppercase font-bold text-lx text-gray-700 mt-5">Quote img</h3>
@@ -247,7 +210,7 @@
                                         type="text"
                                         name="quote_ge"
                                         id="quote_ge"
-                                        value="{{$quote->quote_ge}}"
+                                        value="{{$quote->getTranslation('quote', 'ge')}}"
                                         required
                                     >
 
@@ -268,7 +231,7 @@
                                         type="text"
                                         name="quote_en"
                                         id="quote_en"
-                                        value="{{$quote->quote_en}}"
+                                        value="{{$quote->getTranslation('quote', 'en')}}"
                                         required
                                     >
 

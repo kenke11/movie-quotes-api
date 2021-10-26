@@ -8,19 +8,17 @@
     <div  class="mt-16">
         <h1 class="flex justify-center text-center text-white text-5xl">
             @if(app()->getLocale() == 'en')
-                “{{ substr($movie['quote_'.app()->getLocale()], 0, 50) }}@if(strlen($movie['quote_'.app()->getLocale()])>50)...@endif”
-            @else
-                “{{ substr($movie['quote_'.app()->getLocale()], 0, 100) }}@if(strlen($movie['quote_'.app()->getLocale()])>100)...@endif”
+                “{{ substr(__($quote), 0, 50) }}@if(strlen(__($quote))>50)...@endif”
+            @elseif(app()->getLocale() == 'ge')
+                “{{ substr(__($quote), 0, 150) }}@if(strlen(__($quote))>150)...@endif”
             @endif
-
-
         </h1>
     </div>
 
 
     <div  class="mt-20">
         <a href="{{asset('movie/'.$movie->id)}}" class="flex justify-center text-white text-5xl underline">
-            {{ $movie['name_'.app()->getLocale()]}}
+            {{__($movie->name)}}
         </a>
     </div>
 </article>

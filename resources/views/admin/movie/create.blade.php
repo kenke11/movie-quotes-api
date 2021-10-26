@@ -50,43 +50,6 @@
 
                 </div>
 
-                <div class="mb-6 mt-6">
-
-                    <label for="quote_ge" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                        Quote in georgia
-                    </label>
-
-                    <textarea
-                        class="border border-gray-400 p-2 w-full"
-                        name="quote_ge"
-                        id="quote_ge"
-                        required
-                    >{{old('quote_ge')}}</textarea>
-
-                    @error('quote_ge')
-                        <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-                    @enderror
-
-                </div>
-
-                <div class="mb-6 mt-6">
-
-                    <label for="quote_en" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                        Quote in english
-                    </label>
-
-                    <textarea
-                        class="border border-gray-400 p-2 w-full"
-                        name="quote_en"
-                        id="quote_en"
-                        required
-                    >{{old('quote_en')}}</textarea>
-                    @error('quote_en')
-                    <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-                    @enderror
-
-                </div>
-
                 <div class="mb-6">
 
                     <label for="img" class="block mb-2 uppercase font-bold text-xs text-gray-700">

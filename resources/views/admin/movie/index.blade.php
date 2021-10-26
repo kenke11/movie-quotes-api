@@ -33,7 +33,7 @@
                                             <div class="ml-4">
 
                                                 <div class="text-sm text-gray-500">
-                                                    {{$movie->name_ge}}
+                                                    {{$movie->getTranslation('name', 'ge')}}
                                                 </div>
 
                                             </div>
@@ -44,7 +44,7 @@
                                             <div class="ml-4">
 
                                                 <div class="text-sm text-gray-500">
-                                                    {{$movie->name_en}}
+                                                    {{$movie->getTranslation('name', 'en')}}
                                                 </div>
 
                                             </div>
@@ -82,7 +82,6 @@
                             <!-- More people... -->
                             </tbody>
                         </table>
-                        {{$movies->links()}}
                     </div>
                 </div>
             </div>

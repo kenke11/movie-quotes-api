@@ -8,8 +8,9 @@ use Spatie\Translatable\HasTranslations;
 
 class Movie extends Model
 {
-    use HasFactory;
+    use HasFactory, HasTranslations;
 
+    public $translatable = ['name'];
 
     public function quotes() {
         return $this->hasMany(Quote::class);

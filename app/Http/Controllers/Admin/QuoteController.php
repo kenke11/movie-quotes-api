@@ -19,7 +19,14 @@ class QuoteController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store($id, StoreQuoteRequest $request){
+        $quote = new Quote();
         $fieldQuote = $request->validated();
+        $translations = [
+            'en' => $request->quote_en,
+            'ge' => $request->quote_ge
+        ];
+        $quote->setTranslations('quote', $translations);
+        $fieldQuote['quote'] = $quote->getTranslations('quote');
         $fieldQuote['movie_id'] = $id;
         $fieldQuote['quote_img'] = $request->file('quote_img')->storePublicly('img');
         Quote::create($fieldQuote);
@@ -36,6 +43,12 @@ class QuoteController extends Controller
     public function update($id, UpdateQuoteRequest $request) {
         $quote = Quote::find($id);
         $fieldQuote = $request->validated();
+        $translations = [
+            'en' => $request->quote_en,
+            'ge' => $request->quote_ge
+        ];
+        $quote->setTranslations('quote', $translations);
+        $fieldQuote['quote'] = $quote->getTranslations('quote');
         if ($request->quote_img !== null){
             Storage::delete($quote->quote_img);
             $fieldQuote['quote_img'] = request()->file('quote_img')->storePublicly('img');

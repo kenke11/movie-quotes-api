@@ -17,11 +17,10 @@ class MovieController extends Controller
     public function index()
     {
         $movies = Movie::orderby('created_at', 'DESC')
-            ->where('name_en', 'like', '%' . request()->search . '%')
-            ->orWhere('name_ge', 'like', '%' . request()->search . '%')
+            ->where('name', 'like', '%' . request()->search . '%')
             ->paginate(6)->appends(request()->all());
         return view('admin.movie.index', [
-            'movies' => $movies
+            'movies' => $movies,
         ]);
     }
 
@@ -43,9 +42,16 @@ class MovieController extends Controller
      */
     public function store(MovieRequest $request)
     {
-        $movie = $request->validated();
-        $movie['img'] = $request->file('img')->storePublicly('img');
-        Movie::create($movie);
+        $movie = new Movie();
+        $fieldMovie = $request->validated();
+        $translations = [
+            'en' => $request->name_en,
+            'ge' => $request->name_ge
+        ];
+        $movie->setTranslations('name', $translations);
+        $fieldMovie['name'] = $movie->getTranslations('name');
+        $fieldMovie['img'] = $request->file('img')->storePublicly('img');
+        Movie::create($fieldMovie);
         return redirect('admin_panel')->with('success', 'Movie add');
     }
 
@@ -61,7 +67,7 @@ class MovieController extends Controller
         $quotes = $movie->quotes;
         return view('admin.movie.edit', [
             'movie' => $movie,
-            'quotes' => $quotes
+            'quotes' => $quotes,
         ]);
     }
 
@@ -75,12 +81,19 @@ class MovieController extends Controller
     public function update($id, UpdateMovieRequest $request)
     {
         $movie = Movie::find($id);
-        $attribute = $request->validated();
+        $fieldMovie = $request->validated();
+        $translations = [
+            'en' => $request->name_en,
+            'ge' => $request->name_ge
+        ];
+        $movie->setTranslations('name', $translations);
+        $fieldMovie['name'] = $movie->getTranslations('name');
         if ($request->img !== null){
             Storage::delete($movie->img);
-            $attribute['img'] = $request->file('img')->storePublicly('img');
+            $fieldMovie['img'] = $request->file('img')->storePublicly('img');
         }
-        $movie->update($attribute);
+        $movie->update($fieldMovie);
+
         return redirect()->back()->with('success', 'Movie update!');
     }
 

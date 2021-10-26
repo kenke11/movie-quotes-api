@@ -12,8 +12,6 @@ class Quote extends Model
 
     public $translatable = ['quote'];
 
-
-
     public function movie() {
         return $this->belongsTo(Movie::class);
     }
