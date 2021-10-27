@@ -16,10 +16,13 @@ class HomeController extends Controller
             $movie = Movie::all()->random();
             if ($movie->quotes->count() > 0){
                 $quote = $movie->quotes->first()->quote;
+            } else {
+                $quote = null;
             }
         } else {
             $quote = null;
         }
+
 
         return view('welcome', [
             'movie' => $movie,

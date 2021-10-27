@@ -1,5 +1,5 @@
 <x-layout>
-    <section class="px-6 py-8">
+    <section class="px-6 py-8 mt-20">
         <main class="max-w-lg mx-auto mt-10 bg-gray-200 border-gray-500 p-6 rounded-xl">
             <h1 class="text-center font-bold text-xl">Login</h1>
             <form action="{{asset('login')}}" method="POST">
