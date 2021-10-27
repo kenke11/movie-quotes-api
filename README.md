@@ -71,6 +71,14 @@ And now you should provide .env file all the necessary environment variables:
 ```sh
 php artisan migrate
 ```
+
+#
+### Storage link
+
+```sh
+php artisan storage:link
+```
+
 #
 ### Admin registration
 
@@ -96,4 +104,5 @@ php artisan command:create-admin
 #
 ### Resources
 
-[Figma Designs](https://www.figma.com/file/IIJOKK5esgM8uK8pM3D59J/Movie-Quotes?node-id=0%3A1)
+* [Figma Designs](https://www.figma.com/file/IIJOKK5esgM8uK8pM3D59J/Movie-Quotes?node-id=0%3A1)
+* [DrawSQL](https://drawsql.app/redberry-4/diagrams/copy-of-movie-quotes)
