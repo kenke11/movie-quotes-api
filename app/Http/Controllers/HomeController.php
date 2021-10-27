@@ -14,12 +14,13 @@ class HomeController extends Controller
         $movie = Movie::all();
         if ($movie->count() > 0){
             $movie = Movie::all()->random();
-        }
-        if ($movie->quotes->count() > 0){
-            $quote = $movie->quotes->first()->quote;
+            if ($movie->quotes->count() > 0){
+                $quote = $movie->quotes->first()->quote;
+            }
         } else {
             $quote = null;
         }
+
         return view('welcome', [
             'movie' => $movie,
             'quote' => $quote
