@@ -30,8 +30,6 @@ class DatabaseSeeder extends Seeder
             'img' => 'img/images.jpeg'
         ]);
 
-        $imgPatch = '';
-
         Quote::create([
             'movie_id' => $movie->id,
             'quote' => [
