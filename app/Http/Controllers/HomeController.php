@@ -23,7 +23,6 @@ class HomeController extends Controller
             $quote = null;
         }
 
-
         return view('welcome', [
             'movie' => $movie,
             'quote' => $quote
