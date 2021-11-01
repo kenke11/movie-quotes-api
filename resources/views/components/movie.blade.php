@@ -21,7 +21,7 @@
 
 
     <div  class="mt-20">
-        <a href="{{asset('movie/'.$movie->id)}}" class="flex justify-center text-white text-5xl underline">
+        <a href="{{route('movie.show', $movie->id)}}" class="flex justify-center text-white text-5xl underline">
             {{__($movie->name)}}
         </a>
     </div>

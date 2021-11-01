@@ -7,7 +7,7 @@
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <div class="min-w-full divide-y divide-gray-200 mb-5 ">
-                            <form action="{{asset('admin_panel')}}" method="GET">
+                            <form action="{{route('movie.store')}}" method="GET">
                                 <label for="search" class="text-xl">Search movies</label>
                                 <div class="flex">
                                     <input type="search" id="search" name="search" placeholder="Search..." class="w-full px-5 py-3 rounded-l-xl" >
@@ -51,11 +51,11 @@
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <a href="{{asset('admin_panel/movie/edit/'.$movie->id)}}" class="text-indigo-600 hover:text-indigo-900">Edit / Add quotes</a>
+                                        <a href="{{route('movie.edit', $movie->id)}}" class="text-indigo-600 hover:text-indigo-900">Edit / Add quotes</a>
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <form method="POST" action="{{asset('admin_panel/movie/delete/'.$movie->id)}}">
+                                        <form method="POST" action="{{route('movie.delete', $movie->id)}}">
                                             @csrf
                                             @method('DELETE')
                                             <button class="text-red-600  hover:text-red-900">Delete</button>

@@ -2,7 +2,7 @@
 
     <section class="px-5 py-5 ">
         <main class=" ml-10 mt-10 lg:flex">
-            <form method="POST" action="{{asset('admin_panel/movie/update/'.$movie->id)}}" enctype="multipart/form-data" class="h-full bg-gray-200 border-gray-500 p-6 rounded-xl w-1/2 mx-5">
+            <form method="POST" action="{{route('movie.update', $movie->id)}}" enctype="multipart/form-data" class="h-full bg-gray-200 border-gray-500 p-6 rounded-xl w-1/2 mx-5">
                 @csrf
                 <h1 class="text-center font-bold text-xl">Edit movie quotes</h1>
                 <div class="mb-6 mt-6">
@@ -88,7 +88,7 @@
 
                 <form
                     method="POST"
-                    action="{{route('quote-store', $movie->id)}}"
+                    action="{{route('quote.store', $movie->id)}}"
                     class="quote_form hidden opacity-0 bg-green-200 border border-green-500 p-6 rounded-xl  my-5 transition duration-1000"
                     enctype="multipart/form-data"
                 >
@@ -163,7 +163,7 @@
                     <div x-data="{ show: false }">
                         <div class="w-full bg-gray-200 border-gray-500 p-6 rounded-xl my-5 transition duration-1000">
 
-                            <form method="POST" action="{{asset('admin_panel/movie/edit/quote/delete/'.$quote->id)}}" class="mb-3 w-full text-right">
+                            <form method="POST" action="{{route('quote.delete', $quote->id)}}" class="mb-3 w-full text-right">
                                 @csrf
                                 @method('DELETE')
                                 <button class="font-bold text-red-500">X</button>
@@ -190,7 +190,7 @@
                         <div class="w-full bg-blue-200 border-blue-300 p-6 rounded-xl my-5 transition duration-1000" x-show="show">
                             <form
                                 method="POST"
-                                action="{{asset('admin_panel/movie/edit/quote/update/'.$quote->id)}}"
+                                action="{{route('quote.update', $quote->id)}}"
                                 class="quote_form p-6 transition duration-1000"
                                 enctype="multipart/form-data"
                             >
