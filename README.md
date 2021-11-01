@@ -71,7 +71,12 @@ or if you need default movie and quotes
 php artisan migrate:fresh --seed
 ```
 
-6. Storage ling
+default:
+* username: admin
+* email:    admin@gmail.com
+* password: admin123
+
+6. Storage link
 
 ```sh
 php artisan storage:link
