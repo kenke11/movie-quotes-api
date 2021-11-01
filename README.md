@@ -13,7 +13,6 @@
 * [Packages](#packages)
 * [Getting started](#getting-started)
 * [Database tables](#database-tables)
-* [Migrations](#migration)
 * [Admin registrations](#admin-registration)
 * [Resources](#resources)
 
@@ -60,6 +59,24 @@ cp .env.example .env
 ```
 And now you should provide .env file all the necessary environment variables:
 
+5. migrations
+
+```sh
+php artisan migrate
+```
+
+or if you need default movie and quotes
+
+```sh
+php artisan migrate:fresh --seed
+```
+
+6. Storage ling
+
+```sh
+php artisan storage:link
+```
+
 #
 ### Database tables
 
@@ -68,9 +85,7 @@ And now you should provide .env file all the necessary environment variables:
 #
 ### Migration
 
-```sh
-php artisan migrate
-```
+
 
 #
 ### Storage link

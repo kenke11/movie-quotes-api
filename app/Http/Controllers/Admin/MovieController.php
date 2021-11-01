@@ -10,10 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class MovieController extends Controller
 {
-    /**
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
-     */
+
     public function index()
     {
         $movies = Movie::orderby('created_at', 'DESC')
@@ -24,22 +21,11 @@ class MovieController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new movies.
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
-     */
     public function create()
     {
         return view('admin.movie.create');
     }
 
-    /**
-     * Store a newly created movie in storage.
-     *
-     * @param  \App\Http\Requests\MovieRequest  $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
-     */
     public function store(MovieRequest $request)
     {
         $movie = new Movie();
@@ -56,12 +42,6 @@ class MovieController extends Controller
         return redirect('admin_panel')->with('success', 'Movie add');
     }
 
-    /**
-     * Show the form for editing the specified movie.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $movie = Movie::find($id);
@@ -72,13 +52,6 @@ class MovieController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified movie in storage.
-     *
-     * @param  \App\Http\Requests\UpdateMovieRequest  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function update($id, UpdateMovieRequest $request)
     {
         $movie = Movie::find($id);
@@ -98,12 +71,6 @@ class MovieController extends Controller
         return redirect()->back()->with('success', 'Movie update!');
     }
 
-    /**
-     * Remove the specified movie from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function destroy($id)
     {
         $post = Movie::find($id);

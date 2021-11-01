@@ -8,19 +8,10 @@ use Illuminate\Validation\ValidationException;
 class SessionController extends Controller
 {
 
-    /**
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
-     */
     public function create() {
         return view('login.create');
     }
 
-    /**
-     *
-     * @param  \App\Http\Requests\LoginRequest  $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
-     */
     public function store(LoginRequest $request) {
         $attribute = $request->validate($request->rules());
         if(auth()->attempt($attribute)) {
@@ -32,10 +23,6 @@ class SessionController extends Controller
         ]);
     }
 
-    /**
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
-     */
     public function logout(){
         auth()->logout();
         return redirect('/');
