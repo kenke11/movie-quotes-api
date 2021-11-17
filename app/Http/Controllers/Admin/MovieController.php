@@ -39,7 +39,7 @@ class MovieController extends Controller
         $fieldMovie['name'] = $movie->getTranslations('name');
         $fieldMovie['img'] = $request->file('img')->storePublicly('img');
         Movie::create($fieldMovie);
-        return redirect('admin_panel')->with('success', 'Movie add');
+        return redirect('admin_panel')->with('success', 'Movie created!');
     }
 
     public function edit($id)
@@ -68,7 +68,7 @@ class MovieController extends Controller
         }
         $movie->update($fieldMovie);
 
-        return redirect()->back()->with('success', 'Movie update!');
+        return redirect()->back()->with('success', 'Movie updated!');
     }
 
     public function destroy($id)
