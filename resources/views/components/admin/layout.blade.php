@@ -7,13 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script src="//unpkg.com/alpinejs" defer></script>
+    <link href="{{ asset('js/js.css') }}" rel="stylesheet">
 </head>
 <body>
     <header class="py-10">
         <form id="logout-form" class="text-right" method="POST" action="{{route('logout')}}">
             @csrf
-            <button class="bg-red-300 border px-3 py-2 border-red-500 hover:bg-red-500 rounded-xl text-xl mr-4" type="submit">logout</button>
+            <button class="bg-red-300 border px-3 py-2 border-red-500 hover:bg-red-500 rounded-xl text-xl mr-4 transition duration-500 ease-in" type="submit">logout</button>
         </form>
     </header>
     <div class="m-auto  w-3/4 pt-20 flex">
