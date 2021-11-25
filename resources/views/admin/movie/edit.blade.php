@@ -1,7 +1,7 @@
 <x-admin.layout>
 
     <section class="px-5 py-5 ">
-        <main class=" ml-10 mt-10 lg:flex">
+        <div class=" ml-10 mt-10 lg:flex">
             <form method="POST" action="{{route('movie.update', $movie->id)}}" enctype="multipart/form-data" class="h-full bg-gray-200 border-gray-500 p-6 rounded-xl w-1/2 mx-5">
                 @csrf
                 <h1 class="text-center font-bold text-xl">Edit movie quotes</h1>
@@ -272,7 +272,7 @@
                     </div>
                 @endforeach
             </div>
-        </main>
+        </div>
     </section>
 
 </x-admin.layout>

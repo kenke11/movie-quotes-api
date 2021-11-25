@@ -87,17 +87,6 @@ php artisan storage:link
 
 !["CI / CD"](./readme/drawsql.png)
 
-#
-### Migration
-
-
-
-#
-### Storage link
-
-```sh
-php artisan storage:link
-```
 
 #
 ### Admin registration
