@@ -1,4 +1,8 @@
 {
     "dont_have_movie": "No movies were found",
-    "dont_have_quote": "This movie has no quotes"
+    "dont_have_quote": "This movie has no quotes",
+    "email": "email",
+    "password": "password",
+    "login": "log in",
+    "auth": "Log in"
 }

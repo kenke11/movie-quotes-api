@@ -1,12 +1,12 @@
 <x-layout>
-    <section class="px-6 py-8 mt-20">
+    <section class="px-6 py-8 mt-48">
         <main class="max-w-lg mx-auto mt-10 bg-gray-200 border-gray-500 p-6 rounded-xl">
-            <h1 class="text-center font-bold text-xl">Login</h1>
-            <form action="{{route('login.store')}}" method="POST">
+            <h1 class="text-center font-bold text-xl"> @lang('auth') </h1>
+            <form action="{{route('login.store')}}" method="POST" class="mt-4">
                 @csrf
                 <div class="mb-6">
                     <label for="email" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                        Email
+                        @lang('email')
                     </label>
                     <input
                         class="border border-gray-400 p-2 w-full"
@@ -22,7 +22,7 @@
                 </div>
                 <div class="mb-6">
                     <label for="password" class="block mb-2 uppercase font-bold text-xs text-gray-700">
-                        Password
+                        @lang('password')
                     </label>
                     <input
                         class="border border-gray-400 p-2 w-full"
@@ -41,7 +41,7 @@
                         type="submit"
                         class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500"
                     >
-                        Submit
+                        @lang('login')
                     </button>
                 </div>
             </form>
