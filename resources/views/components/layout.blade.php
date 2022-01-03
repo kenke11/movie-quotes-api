@@ -9,7 +9,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
-<body style="background: #3D3B3B">
+<body class="bg-gray-550">
     <aside class="fixed flex flex-col items-center justify-center h-screen ml-12">
         @foreach(config('app.available_locales') as $locale)
             <a

@@ -1,7 +1,7 @@
 <article
     {{ $attributes->merge(['class' => 'mt-36']) }}
 >
-    <div  class="top-0 py-5 fixed w-full" style="background: #3D3B3B">
+    <div  class="top-0 py-5 fixed w-full bg-gray-550">
         <h2 class="flex  text-white text-5xl" >
             {{ __($movie->name) }}
         </h2>

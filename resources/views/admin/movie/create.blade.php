@@ -2,7 +2,7 @@
 
     <section class="px-5 py-5 ">
         <main class="max-w-lg mx-auto mt-10 bg-gray-200 border-gray-500 p-6 rounded-xl">
-            <form method="POST" action="{{asset('admin_panel/movie')}}" enctype="multipart/form-data">
+            <form method="POST" action="{{route('movie.store')}}" enctype="multipart/form-data">
                 @csrf
 
                 <h1 class="text-center font-bold text-xl">Create movie quotes</h1>
