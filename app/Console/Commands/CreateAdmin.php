@@ -42,7 +42,7 @@ class CreateAdmin extends Command
 
         $admin->username = $this->ask('username: ');
         $admin->email = $this->ask('email: ');
-        $password = $this->ask('password: ');
+        $password = $this->secret('password: ');
         $admin->password = bcrypt($password);
 
         $admin->save();
