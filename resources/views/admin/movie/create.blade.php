@@ -6,8 +6,6 @@
                 @csrf
 
                 <h1 class="text-center font-bold text-xl">Create movie quotes</h1>
-
-
                 <div class="mb-6 mt-6">
 
                     <label for="name_ge" class="block mb-2 uppercase font-bold text-xs text-gray-700">
