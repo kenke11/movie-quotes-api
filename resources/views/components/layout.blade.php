@@ -5,7 +5,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('/img/logo.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('/img/logo.png')}}">
+    <title>Movie quotes</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
