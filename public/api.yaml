@@ -1,0 +1,373 @@
+openapi: 3.0.0
+info:
+  title: Sample API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8000/api/
+    description: local server
+  - url: http://prodaction.app/api/
+    description: prodaction servers
+paths:
+  /admin_panel/login:
+    post:
+      summary: Login.
+      requestBody:
+        required: true
+        content:
+          aplication/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: admin@gmail.com
+                password:
+                  type: string
+                  example: admin123
+      responses:
+        '200':
+          description: Login successfuly
+  /movies:
+    get:
+      summary: Returns a list of movies.
+      responses:
+        '200':    # status code
+          description: A JSON array
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                      example: 1
+                    name:
+                      type: object
+                      properties:
+                        en:
+                          type: string
+                          example: Naruto
+                        ge:
+                          type: string
+                          example: ნარუტო
+                    img:
+                      type: string
+                      example: img/img-name.jpg
+                    quotes:
+                      type: array
+                      items:
+                        properties:
+                          id:
+                            type: integer
+                            format: int64
+                            example: 1
+                          movie_id:
+                            type: string
+                            example: 1
+                          quote:
+                            type: object
+                            properties:
+                              en:
+                                type: string
+                                example: If you don’t like your destiny, don’t accept it. Instead have the courage to change it the way you want it to be
+                              ge:
+                                type: string
+                                example: თუ არ მოგწობს შენი ბედი, ნუ მიიღებ მას. ამის სანაცვლოდ გეყოთ გამბედაობა, შეცვალოთ ის ისე, როგორც თქვენ გინდათ.
+                          quote_img:
+                            type: string
+                            example: img/quote-img-name.jpg
+                          created_at:
+                            type: string
+                            example: "2022-02-14T09:30:04.000000Z"
+                          updated_at:
+                            type: string
+                            example: "2022-02-14T09:30:04.000000Z"
+                    created_at:
+                      type: string
+                      example: "2022-02-14T09:30:04.000000Z"
+                    updated_at:
+                      type: string
+                      example: "2022-02-14T09:30:04.000000Z"
+  /movie/create:
+    post:
+      summary: Creates a movies.
+      requestBody:
+        required: true
+        content:
+          aplication/json:
+            schema:
+              type: object
+              properties:
+                name_en:
+                  type: string
+                  example: Naruto
+                name_ge:
+                  type: string
+                  example: ნარუტო
+                img:
+                  type: string
+                  example: img/img-name.jpg
+      responses:
+        '200':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                      example: 1
+                    name:
+                      type: object
+                      properties:
+                        en:
+                          type: string
+                          example: Naruto
+                        ge:
+                          type: string
+                          example: ნარუტო
+                    img:
+                      type: string
+                      example: img/img-name.jpg
+                    created_at:
+                      type: string
+                      example: "2022-02-14T09:30:04.000000Z"
+                    updated_at:
+                      type: string
+                      example: "2022-02-14T09:30:04.000000Z"
+  /movie/{id}/update:
+    post:
+      summary: Updated a movie.
+      requestBody:
+        required: true
+        content:
+          aplication/json:
+            schema:
+              type: object
+              properties:
+                name_en:
+                  type: string
+                  example: Fairy Tail
+                name_ge:
+                  type: string
+                  example: ფერიის კუდი
+                img:
+                  type: string
+                  example: img/img-name-1.jpg
+      responses:
+        '200':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                      example: 1
+                    name:
+                      type: object
+                      properties:
+                        en:
+                          type: string
+                          example: Fairy Tail
+                        ge:
+                          type: string
+                          example: ფერიის კუდი
+                    img:
+                      type: string
+                      example: img/img-name-1.jpg
+                    created_at:
+                      type: string
+                      example: "2022-02-14T09:30:04.000000Z"
+                    updated_at:
+                      type: string
+                      example: "2022-03-20T12:35:35.000000Z"
+  /movie/{id}/delete:
+    delete:
+      summary: Delete movie
+  /movie/{id}/quotes:
+    get:
+      summary: Returns the movie by id.
+      responses:
+        '200': # status code
+          description: A JSON array
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                      example: 1
+                    name:
+                      type: object
+                      properties:
+                        en:
+                          type: string
+                          example: Naruto
+                        ge:
+                          type: string
+                          example: ნარუტო
+                    img:
+                      type: string
+                      example: img/img-name.jpg
+                    quotes:
+                      type: array
+                      items:
+                        properties:
+                          id:
+                            type: integer
+                            format: int64
+                            example: 1
+                          movie_id:
+                            type: string
+                            example: 1
+                          quote:
+                            type: object
+                            properties:
+                              en:
+                                type: string
+                                example: If you don’t like your destiny, don’t accept it. Instead have the courage to change it the way you want it to be
+                              ge:
+                                type: string
+                                example: თუ არ მოგწობს შენი ბედი, ნუ მიიღებ მას. ამის სანაცვლოდ გეყოთ გამბედაობა, შეცვალოთ ის ისე, როგორც თქვენ გინდათ.
+                          quote_img:
+                            type: string
+                            example: img/quote-img-name.jpg
+                          created_at:
+                            type: string
+                            example: "2022-02-14T09:30:04.000000Z"
+                          updated_at:
+                            type: string
+                            example: "2022-02-14T09:30:04.000000Z"
+                    created_at:
+                      type: string
+                      example: "2022-02-14T09:30:04.000000Z"
+                    updated_at:
+                      type: string
+                      example: "2022-02-14T09:30:04.000000Z"
+  /quote/create:
+    post:
+      summary: Created a quote.
+      requestBody:
+        required: true
+        content:
+          aplication/json:
+            schema:
+              type: object
+              properties:
+                quote_en:
+                  type: string
+                  example: If you don’t like your destiny, don’t accept it. Instead have the courage to change it the way you want it to be
+                quote_ge:
+                  type: string
+                  example: თუ არ მოგწობს შენი ბედი, ნუ მიიღებ მას. ამის სანაცვლოდ გეყოთ გამბედაობა, შეცვალოთ ის ისე, როგორც თქვენ გინდათ.
+                quote_img:
+                  type: string
+                  example: img/quote-img-name.jpg
+                movie_id:
+                  type: string
+                  example: 1
+      responses:
+        '200':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                      example: 1
+                    movie_id:
+                      type: string
+                      example: 1
+                    quote:
+                      type: object
+                      properties:
+                        en:
+                          type: string
+                          example: If you don’t like your destiny, don’t accept it. Instead have the courage to change it the way you want it to be
+                        ge:
+                          type: string
+                          example: თუ არ მოგწობს შენი ბედი, ნუ მიიღებ მას. ამის სანაცვლოდ გეყოთ გამბედაობა, შეცვალოთ ის ისე, როგორც თქვენ გინდათ.
+                    quote_img:
+                      type: string
+                      example: img/quote-img-name.jpg
+                    created_at:
+                      type: string
+                      example: "2022-02-14T09:30:04.000000Z"
+                    updated_at:
+                      type: string
+                      example: "2022-02-14T09:30:04.000000Z"
+  /quote/{id}/update:
+    post:
+      summary: Updated a quote.
+      requestBody:
+        required: true
+        content:
+          aplication/json:
+            schema:
+              type: object
+              properties:
+                quote_en:
+                  type: string
+                  example: If you don’t share someone’s pain, you can never understand them.
+                quote_ge:
+                  type: string
+                  example: თუ არ იზიარებ ვინმეს ტკივილს, ვერასოდეს გაუგებ მას.
+                quote_img:
+                  type: string
+                  example: img/quote-img-name-1.jpg
+      responses:
+        '200':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                      example: 1
+                    name:
+                      type: object
+                      properties:
+                        en:
+                          type: string
+                          example: If you don’t share someone’s pain, you can never understand them.
+                        ge:
+                          type: string
+                          example: თუ არ იზიარებ ვინმეს ტკივილს, ვერასოდეს გაუგებ მას.
+                    img:
+                      type: string
+                      example: img/quote-img-name-1.jpg
+                    created_at:
+                      type: string
+                      example: "2022-02-14T09:30:04.000000Z"
+                    updated_at:
+                      type: string
+                      example: "2022-03-20T12:35:35.000000Z"
+  /quote/{id}/delete:
+    delete:
+      summary: Delete movie
