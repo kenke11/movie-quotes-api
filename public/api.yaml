@@ -8,7 +8,7 @@ servers:
   - url: http://prodaction.app/api/
     description: prodaction servers
 paths:
-  /admin_panel/login:
+  /login:
     post:
       summary: Login.
       requestBody:

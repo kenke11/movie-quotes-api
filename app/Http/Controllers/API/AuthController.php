@@ -20,20 +20,21 @@ class AuthController extends Controller
 	{
 		if (Auth::attempt(['email' => $request->email, 'password' => $request->password]))
 		{
+			$request->session()->regenerate();
 			$user = Auth::user();
+
 			return response()->json([
-				'status'                          => 'success',
-				'username'                        => $user->username,
-				'idToken'                         => $this->idToken,
-				'expiresIn'                       => '3600',
+				'status'     => 200,
+				'message'    => 'Logged In Successfully!',
+				'user'       => $user,
+				'token'      => $user->username . $this->idToken,
+				'expiresIn'  => '3600',
 			]);
 		}
-		else
-		{
-			return response()->json([
-				'status' => 'error',
-				'data'   => 'unauthorized',
-			]);
-		}
+
+		return response()->json([
+			'status' => 401,
+			'data'   => 'unauthorized',
+		]);
 	}
 }
