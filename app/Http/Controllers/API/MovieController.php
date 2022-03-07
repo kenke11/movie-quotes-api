@@ -36,9 +36,9 @@ class MovieController extends Controller
 
 	public function update($id, MovieUpdateRequest $request)
 	{
-		$request->validated();
-
 		$movie = Movie::find($id);
+
+		$request->validated();
 
 		$translations = [
 			'en' => $request->name_en,

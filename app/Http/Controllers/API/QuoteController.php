@@ -4,10 +4,9 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\QuoteStoreRequest;
+use App\Http\Requests\QuoteUpdateRequest;
 use App\Models\Quote;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
 
 class QuoteController extends Controller
 {
@@ -47,26 +46,11 @@ class QuoteController extends Controller
 		]);
 	}
 
-	public function update($id, Request $request)
+	public function update($id, QuoteUpdateRequest $request)
 	{
 		$quote = Quote::find($id);
 
-		$validator = Validator::make(
-			$request->all(),
-			[
-				'quote_en'  => 'required|min:3|max:255',
-				'quote_ge'  => 'required|min:3|max:255',
-			]
-		);
-
-		if ($validator->fails())
-		{
-			return response()->json([
-				'status'  => 'error',
-				'message' => 'Validation error!',
-				'errors'  => $validator->errors(),
-			]);
-		}
+		$request->validated();
 
 		$translations = [
 			'en' => $request->quote_en,
