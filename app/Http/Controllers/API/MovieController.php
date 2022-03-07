@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MovieStoreRequest;
 use App\Models\Movie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -10,25 +11,9 @@ use Illuminate\Support\Facades\Validator;
 
 class MovieController extends Controller
 {
-	public function store(Request $request)
+	public function store(MovieStoreRequest $request)
 	{
-		$validator = Validator::make(
-			$request->all(),
-			[
-				'name_en' => 'required|min:3|max:255',
-				'name_ge' => 'required|min:3|max:255',
-				'img'     => 'required|image',
-			]
-		);
-
-		if ($validator->fails())
-		{
-			return response()->json([
-				'status'  => 'error',
-				'message' => 'Validation error!',
-				'errors'  => $validator->errors(),
-			]);
-		}
+		$request->validated();
 
 		$movie = new Movie();
 
