@@ -6,28 +6,18 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateMoviesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('movies', function (Blueprint $table) {
-            $table->id();
-            $table->json('name');
-            $table->string('img');
-            $table->timestamps();
-        });
-    }
+	public function up()
+	{
+		Schema::create('movies', function (Blueprint $table) {
+			$table->id();
+			$table->json('name');
+			$table->string('img');
+			$table->timestamps();
+		});
+	}
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('movies');
-    }
+	public function down()
+	{
+		Schema::dropIfExists('movies');
+	}
 }
