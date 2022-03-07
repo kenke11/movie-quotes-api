@@ -4,10 +4,9 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MovieStoreRequest;
+use App\Http\Requests\MovieUpdateRequest;
 use App\Models\Movie;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
 
 class MovieController extends Controller
 {
@@ -35,26 +34,11 @@ class MovieController extends Controller
 		]);
 	}
 
-	public function update($id, Request $request)
+	public function update($id, MovieUpdateRequest $request)
 	{
+		$request->validated();
+
 		$movie = Movie::find($id);
-
-		$validator = Validator::make(
-			$request->all(),
-			[
-				'name_en' => 'required|min:3|max:255',
-				'name_ge' => 'required|min:3|max:255',
-			]
-		);
-
-		if ($validator->fails())
-		{
-			return response()->json([
-				'status'  => 'error',
-				'message' => 'Validation error!',
-				'errors'  => $validator->errors(),
-			]);
-		}
 
 		$translations = [
 			'en' => $request->name_en,
