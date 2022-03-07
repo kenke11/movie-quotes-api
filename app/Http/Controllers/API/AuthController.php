@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -16,8 +16,10 @@ class AuthController extends Controller
 		$this->idToken = uniqid(base64_encode(Str::random(40)));
 	}
 
-	public function login(Request $request)
+	public function login(LoginRequest $request)
 	{
+		$request->validated();
+
 		if (Auth::attempt(['email' => $request->email, 'password' => $request->password]))
 		{
 			$user = Auth::user();
